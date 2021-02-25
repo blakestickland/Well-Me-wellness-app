@@ -1,0 +1,30 @@
+USER STORY
+=============================
+As a user i'm interested in personal wellness
+	-> I want to track my progress 
+	-> to reach my fitness goals faster
+
+
+ACCEPTANCE CRITERIA
+=============================
+{P1}
+Sign up -> details stored: name, email, password, weight, height, age, gender, food preference
+
+{P2}
+Log your day -> details stored: calories, exercise, water intake, sleep
+	-> Daily score: based on responses
+	-> Showing healthy recipes based on food preference
+	-> Inspiring quote
+
+{P3}
+Results -> 7 day comparison (score-trend/average) (4 criteria)
+	
+
+SCHEMA
+============================
+user_db: {name, email, password, weight, height, age, gender, food preference, id}
+yourDay_db: {calories, exercise, water intake, sleep, daily score, id foreign key}
+
+
+
+
