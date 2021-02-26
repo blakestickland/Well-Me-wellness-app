@@ -1,4 +1,68 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+.top-bar ul li > a {
+  background-color: white;
+  color: black;
 }
+h1 {
+  padding-left: 20px;
+}
+.top-bar {
+  background: white;
+}
+.menu {
+  background: white;
+}
+#getLoginForm {
+    padding: 10px;
+    margin-left: 100px;
+    margin-top: 30px;
+    border-radius: 0.5rem;
+}
+/* Form */
+.translucent-form-overlay {
+  background-color: rgba(54, 54, 54, 0.8);
+  position: absolute;
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  margin-left: 100px;
+  margin-top: 30px;
+  border-radius: 0.5rem;
+}
+.columns.row {
+  display: block;
+}
+
+h3,
+label {
+  color: white;
+}
+input,
+select {
+  color: dark-gray;
+}
+input::placeholder {
+  color: dark-gray;
+}
+/* background Image */
+body,
+html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("runner.jpg");
+  /* opacity: 0.8; */
+  min-height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
