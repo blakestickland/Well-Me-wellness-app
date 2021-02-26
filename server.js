@@ -5,7 +5,6 @@ const session = require("express-session");
 const passport = require("./config/passport");
 const exphbs = require("express-handlebars");
 
-
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
@@ -13,7 +12,7 @@ const db = require("./models");
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 
-app.engine("handlebars", exphbs({defaultLayout: "main"}))
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
