@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "easy@111",
-    "database": "wellness_trackerdb",
+    "password": "",
+    "database": "wellme_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

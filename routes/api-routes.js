@@ -19,8 +19,14 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", (req, res) => {
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      weight: req.body.weight,
+      height: req.body.height,
+      age: req.body.age,
+      gender: req.body.gender,
+      vegetarian: req.body.vegetarain
     })
       .then(() => {
         res.redirect(307, "/api/login");
