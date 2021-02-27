@@ -1,0 +1,133 @@
+   <nav id="navBar">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <h1 class="menu-text">Well <i class="fas fa-heart"></i> Me</h1>
+            </div>
+            <div class="top-bar-right">
+                <ul class="vertical medium-horizontal dropdown menu align-right text-black" id="nav-menu"
+                    data-dropdown-menu>
+                    <li><a href="./signup.handlebars">Home</a></li>
+                    <li class="is-active"><a href="#">Daily Log</a></li>
+                    <li><a href="./graph.handlebars">Weekly Results</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- handlebars partials for members page only goals bar -->
+    {{>goal-bar}}
+
+    <!-- background image for page -->
+    <div class="bg-img">
+        <div class="row">
+            <div class="columns small-12 large-6">
+
+                <!-- log daily form add hide class when calculated -->
+                <div class="logForm">
+                    <div class="translucent-form-overlay">
+                        <form class="container" id="signupForm">
+                            <h3 class="text-center">Log Your Day</h3>
+                            <p class="memIntro text-center">Did you meet your goals today {{name}}?</p>
+                            <p class="memIntro text-center">On a scale from <b>0</b> <i>Nope not today</i> to <b>10</b>
+                                <i>Yeah I Nailed it!</i> Move the Sliders below
+                            </p>
+                            <div class="row columns">
+                                <label>Calories
+                                    <div class="slider" data-slider data-initial-start="0" data-end="10">
+                                        <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
+                                            aria-controls="sliderOutput1"></span>
+                                        <span class="slider-fill" data-slider-fill></span>
+                                        <input type="hidden">
+                                    </div>
+                                    <!-- <div class="small-2 columns">
+                        <input type="number" id="sliderOutput1">
+                    </div> -->
+                                </label>
+                            </div>
+                            <div class="row columns">
+                                <label>Excercise
+                                    <div class="slider" data-slider data-initial-start="5" data-end="10">
+                                        <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
+                                            aria-controls="sliderOutput1"></span>
+                                        <span class="slider-fill" data-slider-fill></span>
+                                        <input type="hidden">
+                                    </div>
+                                    <!-- <div class="small-2 columns">
+                            <input type="number" id="sliderOutput1">
+                        </div> -->
+                                </label>
+                            </div>
+                            <div class="row columns">
+                                <label>Water Intake
+                                    <div class="slider" data-slider data-initial-start="5" data-end="10">
+                                        <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
+                                            aria-controls="sliderOutput1"></span>
+                                        <span class="slider-fill" data-slider-fill></span>
+                                        <input type="hidden">
+                                    </div>
+                                    <!-- <div class="small-2 columns">
+                            <input type="number" id="sliderOutput1">
+                        </div> -->
+                                </label>
+                            </div>
+                            <div class="row columns">
+                                <label>Sleep
+                                    <div class="slider" data-slider data-initial-start="0" data-end="10">
+                                        <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
+                                            aria-controls="sliderOutput1"></span>
+                                        <span class="slider-fill" data-slider-fill></span>
+                                        <input type="hidden">
+                                    </div>
+                                    <!-- <div class="small-2 columns">
+                            <input type="number" id="sliderOutput1">
+                        </div> -->
+                                </label>
+                            </div>
+                            <button type="submit" class="primary button expanded search-button">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns small-12 large-6">
+
+                <!-- Daily Score Form Remove hide class when calculated-->
+                <div class="scoreForm hide">
+                    <div class="translucent-form-overlay">
+                        <form class="container" id="signupForm">
+                            <h3 class="text-center">Your Wellbeing Score is</h3>
+                            <p class="memIntro text-center">{{score}}</p>
+                            <p class="inspoQuote text-center">"<i>{{quote}}</i>"</p>
+                            <button type="submit" class="primary button expanded search-button round">
+                                View Your Weekly Results Here
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- recipe section -->
+            <div class="columns small-12 large-6">
+
+                <!-- recipes go here when API called on page load -->
+
+            </div>
+        </div>
+    </div>
+
+    {{!-- delete after setup below --}}
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/55b8ef16f8.js" crossorigin="anonymous"></script>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation/foundation.js"></script>
+    <script src="js/foundation/foundation.slider.js"></script>
+    <script src="/js/login.js"></script>
+    <script src="/js/memebers.js"></script>
+    <script src="/js/signup.js"></script>
+</body>
+
+</html>
