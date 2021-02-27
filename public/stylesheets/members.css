@@ -1,0 +1,51 @@
+.top-bar ul li > a {
+    background-color: white;
+    color: black;
+  }
+  h1 {
+    padding-left: 20px;
+  }
+  .top-bar {
+    background: white;
+  }
+  .menu {
+    background: white;
+  }
+  /* Form */
+.translucent-form-overlay {
+    background-color: rgb(158, 236, 204);
+    position: absolute;
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    color: white;
+    margin: 100px;
+    border-radius: 2rem;
+  }
+  .columns.row {
+    display: block;
+  }
+  
+  h3,
+  label {
+    color: rgb(80, 79, 79);
+  }
+  input,
+  select {
+    color: dark-gray;
+  }
+  input::placeholder {
+    color: dark-gray;
+  }
+  /* background Image */
+  body,
+  html {
+    height: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  .score{
+      color: rgb(80, 79, 79);
+  }
