@@ -8,23 +8,33 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.render("signup");
-  });
-
-  app.get("/login", (req, res) => {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.render("login");
+    res.render("signup", {
+      style: "signup.css"
+    });
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    res.render("daily");
+  app.get("/members", (req, res) => {
+  /*  if (isAuthenticated) {
+      res.render("members", {
+        style: "members.css"
+      });
+    } else {
+      res.render("signup", {
+        style: "signup.css"
+      });
+    }*/
+    console.log("membersroute");
+    res.render("members", {
+      style: "members.css"
+    });
+  });
+
+  //Routing for graph page
+  app.get("/graph", (req, res) => {
+    res.render("graph", {
+      style: "graph.css"
+    });
   });
 };
