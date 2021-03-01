@@ -1,0 +1,37 @@
+<nav id="navBar">
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <h1 class="menu-text">Well <i class="fas fa-heart"></i> Me</h1>
+        </div>
+        <div class="top-bar-right">
+            <ul class="vertical medium-horizontal dropdown menu align-right text-black" id="nav-menu"
+                data-dropdown-menu>
+                <li><a href="./signup.handlebars">Home</a></li>
+                <li><a href="./members.handlebars">Daily Log</a></li>
+                <li "is-active"><a href="#">Weekly Results</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- handlebars partials for members page only goals bar -->
+{{>goal-bar}}
+
+<!-- background image for page -->
+<div class="bg-img">
+    <div class="row">
+        <div class="columns small-12">
+
+            <!-- log daily form add hide class when calculated -->
+            <div class="logForm">
+                <div class="translucent-form-overlay">
+                    <form class="container" id="signupForm">
+                        <h3 class="text-center">Your Weekly Results</h3>
+                        <p class="memIntro text-center">How did you go this week?</p>
+
+                        {{!-- Graph goes here --}}
+                        
+                        <p class="memIntro text-center">If you didn't reach your goals this week {{name}} don't worry. Each day offers a fresh start. It's important to to keep logging your daily results so you can see patterns. You could make adjustments to your routine or keep it up if it's working! Small tweaks make a massive difference. </p>
+                        
+    </div>
+</div>
