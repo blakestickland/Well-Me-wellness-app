@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run lint",
     "start": "node server.js",
-    "lint": "eslint --quiet .",
+    "lint": "eslint .",
+    "lint:q": "eslint --quiet .",
     "fix": "eslint --fix .",
     "watch": "nodemon server.js"
   },
