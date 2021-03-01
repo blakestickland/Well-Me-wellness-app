@@ -72,7 +72,7 @@ html {
 }
 .bg-img {
   /* The image used */
-  background-image: url("grass.jpg");
+  background-image: url("cropgrass.jpg");
   min-height: 1000px;
   background-position: center;
   background-repeat: no-repeat;
