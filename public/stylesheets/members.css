@@ -64,8 +64,7 @@ input, select{
 
 .bg-img {
   /* The image used */
-  background-image: url("runner.jpg");
-  /* opacity: 0.8; */
+  background-image: url("cropgrass.jpg");
   min-height: 1000px;
   background-position: center;
   background-repeat: no-repeat;
