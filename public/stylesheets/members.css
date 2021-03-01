@@ -13,17 +13,11 @@ h1 {
 .menu {
   background: white;
 }
-/* goals bar */
-.title-bar{
-  height: 70px;
-  align-items: center;
-}
-.colBar{
-  padding: 20px;
-  letter-spacing: .05em;
-}
-.bari{
-  padding-right: 20px;
+#getLoginForm {
+    padding: 10px;
+    margin-left: 100px;
+    margin-top: 30px;
+    border-radius: 0.5rem;
 }
 /* Form */
 .translucent-form-overlay {
@@ -34,8 +28,8 @@ h1 {
   padding: 20px;
   color: white;
   margin-left: 100px;
-  margin-top: 80px;
-  border-radius: 2rem;
+  margin-top: 30px;
+  border-radius: 0.5rem;
 }
 .columns.row {
   display: block;
@@ -52,24 +46,22 @@ select {
 input::placeholder {
   color: dark-gray;
 }
+.cell{
+  padding-bottom: 0px;
+}
 /* background Image */
 body,
 html {
   height: 100%;
 }
+input, select{
+   height: 1.8rem !important;
+}
 
 * {
   box-sizing: border-box;
 }
-.score{
-    color: rgb(80, 79, 79);
-}
-/* text */
-.memIntro{
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: large;
-}
 .bg-img {
   /* The image used */
   background-image: url("cropgrass.jpg");
@@ -79,4 +71,3 @@ html {
   background-size: cover;
   position: relative;
 }
-

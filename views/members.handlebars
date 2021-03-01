@@ -21,7 +21,6 @@
 <div class="bg-img">
     <div class="row">
         <div class="columns small-12 large-6">
-
             <!-- log daily form add hide class when calculated -->
             <div class="logForm">
                 <div class="translucent-form-overlay">
@@ -31,57 +30,61 @@
                         <p class="memIntro text-center">On a scale from <b>0</b> <i>Nope not today</i> to <b>10</b>
                             <i>Yeah I Nailed it!</i> Move the Sliders below
                         </p>
-                        <div class="row columns">
-                            <label>Calories
+                        <!-- calories input slider -->
+                        <label>Calories</label>
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell small-10">
                                 <div class="slider" data-slider data-initial-start="0" data-end="10">
                                     <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
-                                        aria-controls="sliderOutput1"></span>
+                                        aria-controls="sliderOutputCalories"></span>
                                     <span class="slider-fill" data-slider-fill></span>
-                                    <input type="hidden">
                                 </div>
-                                <!-- <div class="small-2 columns">
-                        <input type="number" id="sliderOutput1">
-                    </div> -->
-                            </label>
+                            </div>
+                            <div class="cell small-2">
+                                <input type="number" id="sliderOutputCalories">
+                            </div>
                         </div>
-                        <div class="row columns">
-                            <label>Excercise
-                                <div class="slider" data-slider data-initial-start="5" data-end="10">
-                                    <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
-                                        aria-controls="sliderOutput1"></span>
-                                    <span class="slider-fill" data-slider-fill></span>
-                                    <input type="hidden">
-                                </div>
-                                <!-- <div class="small-2 columns">
-                            <input type="number" id="sliderOutput1">
-                        </div> -->
-                            </label>
-                        </div>
-                        <div class="row columns">
-                            <label>Water Intake
-                                <div class="slider" data-slider data-initial-start="5" data-end="10">
-                                    <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
-                                        aria-controls="sliderOutput1"></span>
-                                    <span class="slider-fill" data-slider-fill></span>
-                                    <input type="hidden">
-                                </div>
-                                <!-- <div class="small-2 columns">
-                            <input type="number" id="sliderOutput1">
-                        </div> -->
-                            </label>
-                        </div>
-                        <div class="row columns">
-                            <label>Sleep
+                        <!-- exercise input slider -->
+                        <label>Excercise</label>
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell small-10">
                                 <div class="slider" data-slider data-initial-start="0" data-end="10">
                                     <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
-                                        aria-controls="sliderOutput1"></span>
+                                        aria-controls="sliderOutputExcercise"></span>
                                     <span class="slider-fill" data-slider-fill></span>
-                                    <input type="hidden">
                                 </div>
-                                <!-- <div class="small-2 columns">
-                            <input type="number" id="sliderOutput1">
-                        </div> -->
-                            </label>
+                            </div>
+                            <div class="cell small-2">
+                                <input type="number" id="sliderOutputExcercise">
+                            </div>
+                        </div>
+                        <!-- water intake slider -->
+                        <label>Water Intake</label>
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell small-10">
+                                <div class="slider" data-slider data-initial-start="0" data-end="10">
+                                    <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
+                                        aria-controls="sliderOutputWater"></span>
+                                    <span class="slider-fill" data-slider-fill></span>
+                                </div>
+                            </div>
+                            <div class="cell small-2">
+                                <input type="number" id="sliderOutputWater">
+                            </div>
+                        </div>
+                        <!-- sleep intake slider -->
+                        <label>Sleep</label>
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell small-10">
+                                <div class="slider" data-slider data-initial-start="0" data-end="10">
+                                    <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
+                                        aria-controls="sliderOutputSleep"></span>
+                                    <span class="slider-fill" data-slider-fill></span>
+                                </div>
+                            </div>
+                            <div class="cell small-2">
+                                <input type="number" id="sliderOutputSleep">
+                            </div>
                         </div>
                         <button type="submit" class="primary button expanded search-button">
                             Submit
@@ -90,21 +93,17 @@
                 </div>
             </div>
         </div>
-
-        <div class="columns small-12 large-6">
-
-            <!-- Daily Score Form Remove hide class when calculated-->
-            <div class="scoreForm hide">
-                <div class="translucent-form-overlay">
-                    <form class="container" id="signupForm">
-                        <h3 class="text-center">Your Wellbeing Score is</h3>
-                        <p class="memIntro text-center">{{score}}</p>
-                        <p class="inspoQuote text-center">"<i>{{quote}}</i>"</p>
-                        <button type="submit" class="primary button expanded search-button round">
-                            View Your Weekly Results Here
-                        </button>
-                    </form>
-                </div>
+        <!-- Daily Score Form Remove hide class when calculated-->
+        <div class="scoreForm hide">
+            <div class="translucent-form-overlay">
+                <form class="container" id="signupForm">
+                    <h3 class="text-center">Your Wellbeing Score is</h3>
+                    <p class="memIntro text-center">{{score}}</p>
+                    <p class="inspoQuote text-center">"<i>{{quote}}</i>"</p>
+                    <button type="submit" class="primary button expanded search-button round">
+                        View Your Weekly Results Here
+                    </button>
+                </form>
             </div>
         </div>
 
