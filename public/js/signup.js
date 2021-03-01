@@ -47,8 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       body: JSON.stringify(userData)
     })
+      // eslint-disable-next-line prettier/prettier
+      // eslint-disable-next-line no-unused-vars
       .then(response => {
-       window.location.href="/members";
+        window.location.href = "/members";
       })
       .catch(err => console.error(err));
   };
