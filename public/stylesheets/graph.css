@@ -1,3 +1,4 @@
+/* navbar */
 .top-bar ul li > a {
   background-color: white;
   color: black;
@@ -13,17 +14,8 @@ h1 {
 .menu {
   background: white;
 }
-/* goals bar */
-.title-bar {
-  height: 70px;
-  align-items: center;
-}
-.colBar {
-  padding: 20px;
-  letter-spacing: 0.05em;
-}
-.bari {
-  padding-right: 20px;
+.is-active{
+  background-color: white;
 }
 /* Form */
 .translucent-form-overlay {
@@ -33,14 +25,12 @@ h1 {
   width: 100%;
   padding: 20px;
   color: white;
-  margin-left: 100px;
   margin-top: 80px;
   border-radius: 2rem;
 }
 .columns.row {
   display: block;
 }
-
 h3,
 label {
   color: white;
@@ -57,7 +47,6 @@ body,
 html {
   height: 100%;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -71,13 +60,14 @@ html {
 }
 .bg-img {
   /* The image used */
-  background-image: url("yoga.jpg");
+  background-image: url("../assets/yoga.jpg");
   min-height: 1000px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
 }
+/* graph */
 .graphDiv {
   align-items: center;
   width: 1000px;

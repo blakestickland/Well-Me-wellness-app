@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM loaded");
+
   const signUpForm = document.querySelector("#signupForm");
   const usernameInput = document.querySelector(".usernameInput");
   const emailInput = document.querySelector(".emailInput");
@@ -10,9 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const genderInput = document.querySelector(".genderInput");
   const foodInput = document.querySelector(".foodInput");
 
-  // When the signup button is clicked, we validate the email and password are not blank and store all user information in userData //
+  // Event listener for signup form
   if (signUpForm) {
-    signUpForm.addEventListener("submit", (event) => {
+    signUpForm.addEventListener("submit", event => {
       event.preventDefault();
       const userData = {
         name: usernameInput.value.trim(),
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!userData.email || !userData.password) {
         return;
       }
-      // If we have an email and password, run the signUpUser function
+      // Call signUpUser function
       signUpUser(userData);
       usernameInput.value = "";
       emailInput.value = "";
@@ -40,19 +41,18 @@ document.addEventListener("DOMContentLoaded", () => {
       foodInput.value = "";
     });
   }
-  const signUpUser = (userData) => {
+  // fetch request to signup user
+  const signUpUser = userData => {
     fetch("/api/signup", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(userData)
     })
-      // eslint-disable-next-line prettier/prettier
-      // eslint-disable-next-line no-unused-vars
-      .then((response) => {
-        window.location.href = "/members";
+      .then(() => {
+        window.location.replace("/members");
       })
-      .catch((err) => console.error(err));
+      .catch(err => console.error(err));
   };
 });
