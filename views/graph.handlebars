@@ -14,7 +14,6 @@
     </div>
 </nav>
 
-
 <!-- background image for page -->
 <div class="bg-img">
     <div class="row">
@@ -28,6 +27,42 @@
                         <p class="memIntro text-center">How did you go this week?</p>
 
                         {{!-- Graph goes here --}}
+                        <div class="container">
+    <div class="row">
+            <div class="card col-12">
+              <div class="row">
+                <div class="card-body col-6">
+                  <canvas id="water"></canvas>
+                </div>
+                <div class="card-body col-6"> 
+                  <canvas id="calories"></canvas>
+                </div>
+              </div>
+            </div>
+    </div>
+
+
+<script>
+    new Chart(document.getElementById("water"), {
+  type: 'line',
+  data: {
+    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    datasets: [{ 
+        data: [4,2,3,3,1,2,3],
+        label: "Water Intake",
+        borderColor: "#3e95cd",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Water Intake (in litres)'
+    }
+  }
+});
+</script>
 
                         <p class="memIntro text-center">If you didn't reach your goals this week {{name}} don't worry. Each day offers a fresh start. It's important to to keep logging your daily results so you can see patterns. Making small tweaks to your routine can have a huge impact on your results. Keep up the good Work {{name}}! </p>
                         
