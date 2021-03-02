@@ -43,7 +43,7 @@ const dailyLog = userData => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(userData),
+    body: JSON.stringify(userData)
   })
     .then(response => response.json())
     .then(() => {

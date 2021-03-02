@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         weight: weightInput.value.trim(),
         age: ageInput.value.trim(),
         gender: genderInput.value.trim(),
-        diet: foodInput.value.trim(),
+        diet: foodInput.value.trim()
       };
 
       if (!userData.email || !userData.password) {
