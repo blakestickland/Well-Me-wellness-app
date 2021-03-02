@@ -1,40 +1,47 @@
-const getLoginFormBtn = document.getElementById("getLoginFormBtn");
-const loginForm = document.querySelector("#loginForm");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM loaded");
 
-getLoginFormBtn.addEventListener("click", showLoginForm);
+  const loginForm = document.querySelector("#loginForm");
+  const loginEmail = document.querySelector(".loginEmail");
+  const loginPassword = document.querySelector(".loginPassword");
 
-const showLoginForm = () => {
-  signUpForm.classList.add("hide");
-  loginForm.classList.remove("hide");
-};
-loginForm.addEventListener("submit", event => {
-  event.preventDefault();
-  const userData = {
-    email: emailInput.val().trim(),
-    password: passwordInput.val().trim()
+  const loginUser = (userData) => {
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          window.location.replace("/members");
+        } else {
+          alert("Error");
+          return;
+        }
+      })
+      
+      .catch((err) => console.error(err));
   };
 
-  if (!userData.email || !userData.password) {
-    return;
-  }
-  //If we have an email and password we run the loginUser function and clear the form
-  loginUser(userData.email, userData.password);
-  emailInput.val("");
-  passwordInput.val("");
-});
+  if (loginForm) {
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const userData = {
+        email: loginEmail.value.trim(),
+        password: loginPassword.value.trim(),
+      };
 
-//loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-const loginUser = userData => {
-  fetch("/api/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(userData)
-  })
-    .then(response => response.json())
-    .then(() => {
-      window.location.replace("/members");
-    })
-    .catch(err => console.error(err));
-};
+      if (!userData.email || !userData.password) {
+        return;
+      }
+      //If we have an email and password we run the loginUser function and clear the form
+      loginUser(userData);
+      loginEmail.value = "";
+      loginPassword.value = "";
+    });
+  }
+  //loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  console.log("fetch", userData);
+});

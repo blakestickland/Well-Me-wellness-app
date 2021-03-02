@@ -15,7 +15,8 @@
 </nav>
 
 <!-- handlebars partials for members page only goals bar -->
-{{>goal-bar}}
+{{>goal-bar name=name}}
+
 
 <!-- background image for page -->
 <div class="bg-img">
@@ -86,7 +87,7 @@
                                 <input type="number" id="sliderOutputSleep">
                             </div>
                         </div>
-                        <button type="submit" class="primary button expanded search-button">
+                        <button id="dailylogBtn" type="submit" class="primary button expanded search-button">
                             Submit
                         </button>
                     </form>

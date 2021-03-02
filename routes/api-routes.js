@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -8,10 +9,14 @@ module.exports = function(app) {
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
+    const loginUser = {
       email: req.user.email,
-      id: req.user.id
-    });
+      id: req.user.id,
+      name: req.user.name
+    }
+    console.log(loginUser, "loginUser")
+    res.json(loginUser);
+  
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -29,11 +34,13 @@ module.exports = function(app) {
       gender: req.body.gender,
       diet: req.body.diet
     })
-      .then(() => {
+      .then((response) => {
+        console.log(response)
         res.redirect(301, "/members");
       })
       .catch(err => {
-        res.status(401).json(err);
+        console.log(err, "this is the err")
+        // res.status(401).json(err);
       });
   });
 
@@ -44,7 +51,8 @@ module.exports = function(app) {
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", (req, res) => {
+  app.get("/api/user_data", isAuthenticated, (req, res) => {
+    console.log(req.user, " api log");
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
