@@ -13,10 +13,9 @@ module.exports = function(app) {
       email: req.user.email,
       id: req.user.id,
       name: req.user.name
-    }
-    console.log(loginUser, "loginUser")
+    };
+    console.log(loginUser, "loginUser");
     res.json(loginUser);
-  
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -34,12 +33,13 @@ module.exports = function(app) {
       gender: req.body.gender,
       diet: req.body.diet
     })
-      .then((response) => {
-        console.log(response)
+      .then(response => {
+        console.log(response);
+        location.href = "members"
         res.redirect(301, "/members");
       })
       .catch(err => {
-        console.log(err, "this is the err")
+        console.log(err, "this is the err");
         // res.status(401).json(err);
       });
   });

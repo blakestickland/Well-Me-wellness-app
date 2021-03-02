@@ -5,15 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginEmail = document.querySelector(".loginEmail");
   const loginPassword = document.querySelector(".loginPassword");
 
-  const loginUser = (userData) => {
+  const loginUser = userData => {
     fetch("/api/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(userData)
     })
-      .then((response) => {
+      .then(response => {
         if (response.status === 200) {
           window.location.replace("/members");
         } else {
@@ -21,16 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
       })
-      
-      .catch((err) => console.error(err));
+
+      .catch(err => console.error(err));
   };
 
   if (loginForm) {
-    loginForm.addEventListener("submit", (event) => {
+    loginForm.addEventListener("submit", event => {
       event.preventDefault();
       const userData = {
         email: loginEmail.value.trim(),
-        password: loginPassword.value.trim(),
+        password: loginPassword.value.trim()
       };
 
       if (!userData.email || !userData.password) {
@@ -43,5 +43,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   //loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  console.log("fetch", userData);
+  //console.log("fetch", userData);
 });
