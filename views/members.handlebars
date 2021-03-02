@@ -6,9 +6,9 @@
         <div class="top-bar-right">
             <ul class="vertical medium-horizontal dropdown menu align-right text-black" id="nav-menu"
                 data-dropdown-menu>
-                <li><a href="./signup.handlebars">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="is-active"><a href="#">Daily Log</a></li>
-                <li><a href="./graph.handlebars">Weekly Results</a></li>
+                <li><a href="/graph">Weekly Results</a></li>
             </ul>
         </div>
     </div>
@@ -48,7 +48,7 @@
                         <label>Excercise</label>
                         <div class="grid-x grid-margin-x">
                             <div class="cell small-10">
-                                <div class="slider" data-slider data-initial-start="0" data-end="10">
+                                <div id="excerciseInput" class="slider" data-slider data-initial-start="0" data-end="10">
                                     <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
                                         aria-controls="sliderOutputExcercise"></span>
                                     <span class="slider-fill" data-slider-fill></span>
@@ -62,7 +62,7 @@
                         <label>Water Intake</label>
                         <div class="grid-x grid-margin-x">
                             <div class="cell small-10">
-                                <div class="slider" data-slider data-initial-start="0" data-end="10">
+                                <div id="waterInput" class="slider" data-slider data-initial-start="0" data-end="10">
                                     <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
                                         aria-controls="sliderOutputWater"></span>
                                     <span class="slider-fill" data-slider-fill></span>
@@ -76,7 +76,7 @@
                         <label>Sleep</label>
                         <div class="grid-x grid-margin-x">
                             <div class="cell small-10">
-                                <div class="slider" data-slider data-initial-start="0" data-end="10">
+                                <div id="sleepInput" class="slider" data-slider data-initial-start="0" data-end="10">
                                     <span class="slider-handle" data-slider-handle role="slider" tabindex="1"
                                         aria-controls="sliderOutputSleep"></span>
                                     <span class="slider-fill" data-slider-fill></span>
