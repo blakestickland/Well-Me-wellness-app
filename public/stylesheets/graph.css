@@ -14,17 +14,8 @@ h1 {
 .menu {
   background: white;
 }
-/* goals bar */
-.title-bar {
-  height: 70px;
-  align-items: center;
-}
-.colBar {
-  padding: 20px;
-  letter-spacing: 0.05em;
-}
-.bari {
-  padding-right: 20px;
+.is-active{
+  background-color: white;
 }
 /* Form */
 .translucent-form-overlay {
@@ -40,7 +31,6 @@ h1 {
 .columns.row {
   display: block;
 }
-
 h3,
 label {
   color: white;
@@ -57,7 +47,6 @@ body,
 html {
   height: 100%;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -78,6 +67,7 @@ html {
   background-size: cover;
   position: relative;
 }
+/* graph */
 .graphDiv {
   align-items: center;
   width: 1000px;
