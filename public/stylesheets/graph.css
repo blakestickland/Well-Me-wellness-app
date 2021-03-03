@@ -88,5 +88,10 @@ html {
   height: 70px;
   background: #08d489;
   color: #ffffff;
-  justify-content: space-evenly
+  justify-content: space-evenly;
+  font-size: 26px;
+}
+
+.logout:hover{
+  color:#08d489;
 }

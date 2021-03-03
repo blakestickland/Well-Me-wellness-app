@@ -35,6 +35,9 @@ h1 {
     margin-top: 30px;
     border-radius: 0.5rem;
 }
+label {
+  font-size: 18px;
+}
 /* goals bar */
 .title-bar {
   height: 70px;
@@ -102,7 +105,8 @@ input, select{
   height: 70px;
   background: #08d489;
   color: #ffffff;
-  justify-content: space-evenly
+  justify-content: space-evenly;
+  font-size: 18px;
 }
 
 .slider-handle {
