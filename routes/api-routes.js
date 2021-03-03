@@ -25,7 +25,9 @@ module.exports = function(app) {
       height: req.body.height,
       age: req.body.age,
       gender: req.body.gender,
-      diet: req.body.diet
+      diet: req.body.diet,
+      activity: req.body.activity,
+      goal: req.body.goal
     })
       .then(response => {
         console.log(response);
