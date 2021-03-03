@@ -49,7 +49,7 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back this userData
+      // Otherwise send back th
       res.json({
         name: req.user.name,
         weight: req.user.weight,
