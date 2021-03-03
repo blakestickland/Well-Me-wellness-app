@@ -9,13 +9,16 @@
                 <li><a href="/">Home</a></li>
                 <li class="is-active"><a href="#">Daily Log</a></li>
                 <li><a href="/graph">Weekly Results</a></li>
+                <li><a href="/logout" class="logout">Logout</a></li>
+
             </ul>
         </div>
     </div>
 </nav>
 
 <!-- handlebars partials for members page only goals bar -->
-{{>goal-bar}}
+{{>goal-bar name=name}}
+
 
 <!-- background image for page -->
 <div class="bg-img">
@@ -24,7 +27,7 @@
             <!-- log daily form add hide class when calculated -->
             <div class="logForm">
                 <div class="translucent-form-overlay">
-                    <form class="container" id="signupForm">
+                    <form class="container" id="dailyLogForm">
                         <h3 class="text-center">Log Your Day</h3>
                         <p class="memIntro text-center">Did you meet your goals today {{name}}?</p>
                         <p class="memIntro text-center">On a scale from <b>0</b> <i>Nope not today</i> to <b>10</b>
@@ -86,7 +89,7 @@
                                 <input type="number" id="sliderOutputSleep">
                             </div>
                         </div>
-                        <button type="submit" class="primary button expanded search-button">
+                        <button id="dailylogBtn" type="submit" class="primary button expanded search-button">
                             Submit
                         </button>
                     </form>
@@ -96,7 +99,7 @@
         <!-- Daily Score Form Remove hide class when calculated-->
         <div class="scoreForm hide">
             <div class="translucent-form-overlay">
-                <form class="container" id="signupForm">
+                <form class="container" id="dailyScoreForm">
                     <h3 class="text-center">Your Wellbeing Score is</h3>
                     <p class="memIntro text-center">{{score}}</p>
                     <p class="inspoQuote text-center">"<i>{{quote}}</i>"</p>

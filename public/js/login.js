@@ -1,40 +1,44 @@
-const getLoginFormBtn = document.getElementById("getLoginFormBtn");
-const loginForm = document.querySelector("#loginForm");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM loaded");
 
-getLoginFormBtn.addEventListener("click", showLoginForm);
+  const loginForm = document.querySelector("#loginForm");
+  const loginEmail = document.querySelector(".loginEmail");
+  const loginPassword = document.querySelector(".loginPassword");
 
-const showLoginForm = () => {
-  signUpForm.classList.add("hide");
-  loginForm.classList.remove("hide");
-};
-loginForm.addEventListener("submit", event => {
-  event.preventDefault();
-  const userData = {
-    email: emailInput.val().trim(),
-    password: passwordInput.val().trim()
-  };
-
-  if (!userData.email || !userData.password) {
-    return;
-  }
-  //If we have an email and password we run the loginUser function and clear the form
-  loginUser(userData.email, userData.password);
-  emailInput.val("");
-  passwordInput.val("");
-});
-
-//loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-const loginUser = userData => {
-  fetch("/api/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(userData)
-  })
-    .then(response => response.json())
-    .then(() => {
-      window.location.replace("/members");
+  // fetch request for the user login
+  const loginUser = userData => {
+    fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userData)
     })
-    .catch(err => console.error(err));
-};
+      .then(response => {
+        if (response.status === 200) {
+          window.location.replace("/members");
+        } else {
+          alert("Error");
+          return;
+        }
+      })
+      .catch(err => console.error(err));
+  };
+  // Event listener for the login form
+  if (loginForm) {
+    loginForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const userData = {
+        email: loginEmail.value.trim(),
+        password: loginPassword.value.trim()
+      };
+      if (!userData.email || !userData.password) {
+        return;
+      }
+      // clears the form
+      loginUser(userData);
+      loginEmail.value = "";
+      loginPassword.value = "";
+    });
+  }
+});
