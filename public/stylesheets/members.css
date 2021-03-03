@@ -14,11 +14,29 @@ h1 {
 .menu {
   background: white;
 }
+.is-active{
+  background-color: white;
+}
+/* goals bar */
+.title-bar {
+  height: 70px;
+  align-items: center;
+}
+.colBar {
+  padding: 20px;
+}
+.bari {
+  padding-right: 20px;
+}
+/* button */
 #getLoginForm {
     padding: 10px;
     margin-left: 100px;
     margin-top: 30px;
     border-radius: 0.5rem;
+}
+label {
+  font-size: 18px;
 }
 /* goals bar */
 .title-bar {
@@ -46,7 +64,6 @@ h1 {
 .columns.row {
   display: block;
 }
-
 h3,
 label {
   color: white;
@@ -69,11 +86,9 @@ html {
 input, select{
    height: 1.8rem !important;
 }
-
 * {
   box-sizing: border-box;
 }
-
 .bg-img {
   /* The image used */
   background-image: url("../assets/cropgrass.jpg");
@@ -82,4 +97,39 @@ input, select{
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+
+
+/*Styling for goal bar*/
+.title-bar {
+  height: 70px;
+  background: #08d489;
+  color: #ffffff;
+  justify-content: space-evenly;
+  font-size: 18px;
+}
+
+.slider-handle {
+  background-color: #08d489;
+}
+
+.fa-heart {
+  color: red;
+}
+
+.button.primary {
+  background-color: #08d489;
+}
+
+.fa-utensils, .fa-running, .fa-glass-whiskey, .fa-bed, .fa-child {
+  padding-right: 10px;
+}
+
+.dropdown.menu>li.is-active>a {
+  background: 0 0;
+  color:  #08d489;
+}
+
+.label {
+  font-size: 18px;
 }

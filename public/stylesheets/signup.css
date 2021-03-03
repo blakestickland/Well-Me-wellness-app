@@ -15,10 +15,17 @@ h1 {
   background: white;
 }
 #getLoginForm {
+    height: 50px;
+    font-size: 18px;
     padding: 10px;
     margin-left: 100px;
     margin-top: 30px;
     border-radius: 0.5rem;
+    background-color: #08d489;
+    justify-content: center;
+}
+.is-active{
+  background-color: white;
 }
 /* Form */
 .translucent-form-overlay {
@@ -28,13 +35,16 @@ h1 {
   width: 100%;
   padding: 20px;
   color: white;
+  margin: auto;
   margin-left: 100px;
   margin-top: 30px;
   border-radius: 0.5rem;
 }
+
 .columns.row {
   display: block;
 }
+
 
 h3,
 label {
@@ -49,6 +59,9 @@ input::placeholder {
 }
 input, select{
   height: 1.8rem !important;
+}
+.inputPlaceholder{
+  color: dark-gray;
 }
 /* background Image */
 body,
@@ -67,4 +80,31 @@ html {
   position: relative;
 }
 
+.fa-heart {
+  color: red;
+}
 
+.title-bar {
+  height: 50px;
+  background: #08d489;
+  color: #ffffff;
+  justify-content: space-evenly;
+  font-size: 26px;
+  font-style: bold;
+}
+
+.dropdown.menu>li.is-active>a {
+  background: 0 0;
+  color:  #08d489;
+}
+
+.button.primary {
+  background-color: #08d489;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+
+label {
+  font-size: 18px;
+}
