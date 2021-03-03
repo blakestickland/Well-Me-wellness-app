@@ -14,23 +14,27 @@ const calorieInput = document.getElementById("sliderOutputCalories");
 const exerciseInput = document.getElementById("sliderOutputExcercise");
 const waterInput = document.getElementById("sliderOutputWater");
 const sleepInput = document.getElementById("sliderOutputSleep");
-const dailylogBtn = document.getElementById("dailylogBtn");
 
 // Event Listener for the daily log form
 if (dailyLogForm) {
-  dailylogBtn.addEventListener("submit", event => {
+  dailyLogForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const userData = {
-      calories: calorieInput.value,
-      exercise: exerciseInput.value,
+      calories: parseInt(calorieInput.value),
+      exercise: parseInt(exerciseInput.value),
       // eslint-disable-next-line camelcase
-      water_intake: waterInput.value,
-      sleep: sleepInput.value
+      water_intake: parseInt(waterInput.value),
+      sleep: parseInt(sleepInput.value)
     };
+    const userDataLength = 4;
+    console.log(userData);
     // calculates daily score and calls dailyLog Fetch request
-    const dailyScore = (sum(userData) / 4) * 100;
-    userData.push({ dailyScore: dailyScore });
-    console.log(dailyScore);
+    const dailyScore =
+      Object.values(userData).reduce(
+        (previous, current) => previous + current
+      ) / userDataLength;
+    userData.dailyScore = dailyScore * 10;
+    console.log(userData, "Added data");
     dailyLog(userData);
     // removes daily log form to show daily score
     dailyLogForm.classList.add("hide");
@@ -38,17 +42,17 @@ if (dailyLogForm) {
   });
 }
 // Fetch request for the daily log
-const dailyLog = userData => {
+const dailyLog = (userData) => {
   fetch("/api/members", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(userData)
+    body: JSON.stringify(userData),
   })
-    .then(response => response.json())
+    .then((response) => response.json())
     .then(() => {
       window.location.replace("/members");
     })
-    .catch(err => console.error(err));
+    .catch((err) => console.error(err));
 };
