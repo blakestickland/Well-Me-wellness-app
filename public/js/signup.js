@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         weight: weightInput.value.trim(),
         age: ageInput.value.trim(),
         gender: genderInput.value.trim(),
-        diet: foodInput.value.trim()
+        diet: foodInput.value.trim(),
+        activity: activityInput.value.trim(),
+        goal: goalInput.value.trim()
       };
       console.log("signup page", userData);
       if (!userData.email || !userData.password) {
@@ -41,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ageInput.value = "";
       genderInput.value = "";
       foodInput.value = "";
+      activityInput.value = "";
+      goalInput.value = "";
     });
   }
   // fetch request to signup user
