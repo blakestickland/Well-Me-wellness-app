@@ -23,7 +23,8 @@ if (dailyLogForm) {
     const userData = {
       calories: calorieInput.value,
       exercise: exerciseInput.value,
-      waterIntake: waterInput.value,
+      // eslint-disable-next-line camelcase
+      water_intake: waterInput.value,
       sleep: sleepInput.value
     };
     // calculates daily score and calls dailyLog Fetch request

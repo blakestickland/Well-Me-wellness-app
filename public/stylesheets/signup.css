@@ -70,4 +70,29 @@ html {
   position: relative;
 }
 
+.fa-heart {
+  color: red;
+}
 
+.title-bar {
+  height: 50px;
+  background: #08d489;
+  color: #ffffff;
+  justify-content: space-evenly;
+  font-size: 26px;
+  font-style: bold;
+}
+
+.dropdown.menu>li.is-active>a {
+  background: 0 0;
+  color:  #08d489;
+}
+
+.button.primary {
+  background-color: #08d489;
+}
+
+
+label {
+  font-size: 18px;
+}
