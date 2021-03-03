@@ -17,7 +17,7 @@ const sleepInput = document.getElementById("sliderOutputSleep");
 
 // Event Listener for the daily log form
 if (dailyLogForm) {
-  dailyLogForm.addEventListener("submit", (event) => {
+  dailyLogForm.addEventListener("submit", event => {
     event.preventDefault();
     const userData = {
       calories: parseInt(calorieInput.value),
@@ -42,17 +42,17 @@ if (dailyLogForm) {
   });
 }
 // Fetch request for the daily log
-const dailyLog = (userData) => {
+const dailyLog = userData => {
   fetch("/api/members", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(userData),
+    body: JSON.stringify(userData)
   })
-    .then((response) => response.json())
+    .then(response => response.json())
     .then(() => {
       window.location.replace("/members");
     })
-    .catch((err) => console.error(err));
+    .catch(err => console.error(err));
 };
