@@ -83,3 +83,11 @@ input, select{
   background-size: cover;
   position: relative;
 }
+
+/* Cards CSS */
+/* .equal-height-cards { */
+  .cell {
+    display: flex;
+    align-items: stretch;
+  }
+/* } */
