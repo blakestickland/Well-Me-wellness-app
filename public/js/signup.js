@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const ageInput = document.querySelector(".ageInput");
   const genderInput = document.querySelector(".genderInput");
   const foodInput = document.querySelector(".foodInput");
+  const activityInput = document.querySelector(".activityInput");
+  const goalInput = document.querySelector(".goalInput");
 
   // Event listener for signup form
   if (signUpForm) {
