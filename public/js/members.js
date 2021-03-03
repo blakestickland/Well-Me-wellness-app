@@ -8,14 +8,16 @@ $(document).foundation();
 //     $(".member-name").text(data.name);
 //   });
 // });
-
+const dailyLogForm = document.getElementById("dailyLogForm");
+const dailyScoreForm = document.getElementById("dailyScoreForm");
 const calorieInput = document.getElementById("sliderOutputCalories");
 const exerciseInput = document.getElementById("sliderOutputExcercise");
 const waterInput = document.getElementById("sliderOutputWater");
 const sleepInput = document.getElementById("sliderOutputSleep");
 const dailylogBtn = document.getElementById("dailylogBtn");
 
-if (dailylogBtn) {
+// Event Listener for the daily log form
+if (dailyLogForm) {
   dailylogBtn.addEventListener("submit", event => {
     event.preventDefault();
     const userData = {
@@ -25,15 +27,17 @@ if (dailylogBtn) {
       water_intake: waterInput.value,
       sleep: sleepInput.value
     };
+    // calculates daily score and calls dailyLog Fetch request
     const dailyScore = (sum(userData) / 4) * 100;
-    // eslint-disable-next-line camelcase
-    userData.push({ daily_score: dailyScore });
+    userData.push({ dailyScore: dailyScore });
     console.log(dailyScore);
     dailyLog(userData);
+    // removes daily log form to show daily score
+    dailyLogForm.classList.add("hide");
+    dailyScoreForm.classList.remove("hide");
   });
 }
-
-//log does a post to our "api/login" route and if successful, redirects us the the members page
+// Fetch request for the daily log
 const dailyLog = userData => {
   fetch("/api/members", {
     method: "POST",
@@ -48,5 +52,3 @@ const dailyLog = userData => {
     })
     .catch(err => console.error(err));
 };
-
-// make calculation of daily score, send it to the data base and upload the score to the handlebars

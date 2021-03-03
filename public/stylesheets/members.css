@@ -1,3 +1,4 @@
+/* navbar */
 .top-bar ul li > a {
   background-color: white;
   color: black;
@@ -13,11 +14,37 @@ h1 {
 .menu {
   background: white;
 }
+.is-active{
+  background-color: white;
+}
+/* goals bar */
+.title-bar {
+  height: 70px;
+  align-items: center;
+}
+.colBar {
+  padding: 20px;
+}
+.bari {
+  padding-right: 20px;
+}
+/* button */
 #getLoginForm {
     padding: 10px;
     margin-left: 100px;
     margin-top: 30px;
     border-radius: 0.5rem;
+}
+/* goals bar */
+.title-bar {
+  height: 70px;
+  align-items: center;
+}
+.colBar {
+  padding: 20px;
+}
+.bari {
+  padding-right: 20px;
 }
 /* Form */
 .translucent-form-overlay {
@@ -28,13 +55,12 @@ h1 {
   padding: 20px;
   color: white;
   margin-left: 100px;
-  margin-top: 30px;
+  margin-top: 70px;
   border-radius: 0.5rem;
 }
 .columns.row {
   display: block;
 }
-
 h3,
 label {
   color: white;
@@ -57,11 +83,9 @@ html {
 input, select{
    height: 1.8rem !important;
 }
-
 * {
   box-sizing: border-box;
 }
-
 .bg-img {
   /* The image used */
   background-image: url("../assets/cropgrass.jpg");

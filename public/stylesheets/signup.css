@@ -1,3 +1,4 @@
+/* navbar */
 .top-bar ul li > a {
   background-color: white;
   color: black;
@@ -8,6 +9,7 @@ h1 {
 .top-bar {
   background: white;
   padding: 0px;
+  margin: 0px;
 }
 .menu {
   background: white;
@@ -17,6 +19,9 @@ h1 {
     margin-left: 100px;
     margin-top: 30px;
     border-radius: 0.5rem;
+}
+.is-active{
+  background-color: white;
 }
 /* Form */
 .translucent-form-overlay {
