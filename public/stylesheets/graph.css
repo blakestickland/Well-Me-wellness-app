@@ -85,3 +85,18 @@ html {
   margin-left: auto;
   margin-right: auto;
 }
+
+.fa-heart {
+  color: red;
+}
+.dropdown.menu>li.is-active>a {
+  background: 0 0;
+  color:  #08d489;
+}
+
+.title-bar {
+  height: 70px;
+  background: #08d489;
+  color: #ffffff;
+  justify-content: space-evenly
+}

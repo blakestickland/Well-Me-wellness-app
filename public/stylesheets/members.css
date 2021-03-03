@@ -71,3 +71,37 @@ input, select{
   background-size: cover;
   position: relative;
 }
+
+
+/*Styling for goal bar*/
+.title-bar {
+  height: 70px;
+  background: #08d489;
+  color: #ffffff;
+  justify-content: space-evenly
+}
+
+.slider-handle {
+  background-color: #08d489;
+}
+
+.fa-heart {
+  color: red;
+}
+
+.button.primary {
+  background-color: #08d489;
+}
+
+.fa-utensils, .fa-running, .fa-glass-whiskey, .fa-bed, .fa-child {
+  padding-right: 10px;
+}
+
+.dropdown.menu>li.is-active>a {
+  background: 0 0;
+  color:  #08d489;
+}
+
+.label {
+  font-size: 18px;
+}

@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gender: genderInput.value.trim(),
         diet: foodInput.value.trim()
       };
-      console.log("signup page", userData)
+      console.log("signup page", userData);
       if (!userData.email || !userData.password) {
         return;
       }
