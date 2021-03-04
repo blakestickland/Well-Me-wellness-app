@@ -35,7 +35,8 @@ module.exports = function(app) {
   //Routing for graph page
   app.get("/graph", (req, res) => {
     res.render("graph", {
-      style: "graph.css"
+      style: "graph.css",
+      user: req.user
     });
   });
 };
