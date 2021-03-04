@@ -9,7 +9,7 @@ const API_PATH2 = "https://api.spoonacular.com/recipes/";
 const recipesReturned = [];
 
 // Gets a bunch of recipes matching the keyword searched.
-let apiUrl = API_PATH;
+const apiUrl = API_PATH;
 const apiUrlExtension = "?diet=" + "vegan"; // this is where we need the result of the diet dropdown entered
 const apiNumberOfResults = "&number=4";
 apiUrl += apiUrlExtension + apiNumberOfResults + API_APP_KEY2;
