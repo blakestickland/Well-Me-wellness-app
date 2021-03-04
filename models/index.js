@@ -8,10 +8,19 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
+// uses a dotenv file to hold the API keys and the database login information
+require('dotenv').config();
+
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
+  console.log("Using the NODE_ENV environment to connect to database.\nThis is set in .env file");
+} else { var sequelize = new Sequelize(
+    process.env.DB_DATABASE,
+    process.env.DB_USERNAME,
+    process.env.DB_PASSWORD,
+    config
+    );
+  console.log("Using the Development environment to connect to database");
 }
 
 fs
