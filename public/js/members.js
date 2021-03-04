@@ -33,7 +33,7 @@ if (dailyLogForm) {
         (previous, current) => previous + current
       ) / userDataLength;
     // eslint-disable-next-line camelcase
-    userData.daily_score = dailyScore * 10;
+    userData.daily_score = dailyScore;
     dailyLog(userData);
     // removes daily log form to show daily score
     dailyLogForm.classList.add("hide");
