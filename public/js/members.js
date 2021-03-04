@@ -4,10 +4,11 @@ $(document).foundation();
 // $(document).ready(() => {
 //   // This file just does a GET request to figure out which user is logged in
 //   // and updates the HTML on the page
-//   $.get("/api/user_data").then(data => {
-//     $(".member-name").text(data.name);
-//   });
-// });
+//$.get("/api/user_data").then(data => {
+//  $(".member-name").text(data.name);
+//});
+const calculate = require("fitness-health-calculations");
+
 const dailyLogForm = document.getElementById("dailyLogForm");
 const dailyScoreForm = document.getElementById("dailyScoreForm");
 const calorieInput = document.getElementById("sliderOutputCalories");
@@ -56,3 +57,45 @@ const dailyLog = userData => {
     })
     .catch(err => console.error(err));
 };
+
+//Personlised calculations
+const fitnessData = userData => {
+  fetch("/api/members", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(userData)
+  })
+    .then(response => response.json())
+    .then(() => {
+      window.location.replace("/members");
+    })
+    .catch(err => console.error(err));
+
+  ///calculating ideal body weight
+  const idealBodyWeight = calculate.idealBodyWeight(
+    req.body.height,
+    toString(req.body.gender)
+  );
+  function idealWeight() {
+    console.log(idealBodyWeight);
+  }
+  idealWeight();
+
+  //calculating ideal caloric intake
+  const totalCaloricNeeds = calculate.caloricNeeds(
+    toString(req.body.gender),
+    req.body.age,
+    req.body.height,
+    req.body.weight,
+    toString(req.body.activity_level),
+    toString(req.body.goal),
+    "normal"
+  );
+  function userCaloricNeeds() {
+    console.log(totalCaloricNeeds);
+  }
+  userCaloricNeeds();
+};
+fitnessData(userData);
