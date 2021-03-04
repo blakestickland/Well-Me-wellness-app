@@ -1,7 +1,12 @@
 {
   "development": {
+<<<<<<< HEAD
     "username": "root",
     "password": "password2",
+=======
+    "username": "root", 
+    "password": "easy@111",
+>>>>>>> a4df6ba045d22cb5c6e1ad35cd72f53d242267cd
     "database": "wellme_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
