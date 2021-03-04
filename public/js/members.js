@@ -27,14 +27,13 @@ if (dailyLogForm) {
       sleep: parseInt(sleepInput.value)
     };
     const userDataLength = 4;
-    console.log(userData);
     // calculates daily score and calls dailyLog Fetch request
     const dailyScore =
       Object.values(userData).reduce(
         (previous, current) => previous + current
       ) / userDataLength;
-    userData.dailyScore = dailyScore * 10;
-    console.log(userData, "Added data");
+    // eslint-disable-next-line camelcase
+    userData.daily_score = dailyScore;
     dailyLog(userData);
     // removes daily log form to show daily score
     dailyLogForm.classList.add("hide");
