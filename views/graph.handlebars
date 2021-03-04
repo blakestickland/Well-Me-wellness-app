@@ -29,40 +29,60 @@
                         <p class="memIntro text-center">How did you go this week?</p>
 
                         {{!-- Graph goes here --}}
-                        <div class="container">
+  <div class="container">
     <div class="row">
-            <div class="card col-12">
-              <div class="row">
-                <div class="card-body col-6">
-                  <canvas id="water"></canvas>
-                </div>
-                <div class="card-body col-6"> 
-                  <canvas id="calories"></canvas>
-                </div>
-              </div>
-            </div>
+      <div class="card col-12">
+        <div class="row">
+          <div class="card-body col-6">
+            <canvas id="weekly-result"></canvas>
+          </div>
+        </div>
+      </div>
     </div>
 
 
-<script>
-    new Chart(document.getElementById("water"), {
-  type: 'line',
-  data: {
-    labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    datasets: [{ 
-        data: [4,2,3,3,1,2,3],
-        label: "Water Intake",
-        borderColor: "#3e95cd",
-        fill: false
+    <script>
+      new Chart(document.getElementById("weekly-result"), {
+        type: 'bar',
+        data: {
+          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          datasets: [
+            {
+              label: "Water Intake",
+              backgroundColor: "#3e95cd",
+              data: [7, 6, 5, 5, 6, 7, 5]
+            }, {
+              label: "Calorie Intake",
+              backgroundColor: "#8e5ea2",
+              data: [4, 6, 8, 5, 6, 4, 6]
+            }, {
+              label: "Excercise",
+              backgroundColor: "#3cba9f",
+              data: [6, 5, 4, 5, 6, 7, 9]
+            }, {
+              label: "Sleep",
+              backgroundColor: "#e8c3b9",
+              data: [7, 6, 6, 7, 8, 8, 7]
+            }
+          ]
+        },
+
+options: {
+      
+        title: {
+        display: true,
+        text: 'Self Score (Rating 1-10)'
       }
-    ]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Water Intake (in litres)'
+    },
+    options: {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    },
     }
-  }
 });
 </script>
 
