@@ -46,7 +46,6 @@ module.exports = function(app) {
 
   // Route for getting userData if authenticated and logged in
   app.get("/api/user_data", isAuthenticated, (req, res) => {
-    console.log(req.user, " api log");
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -59,5 +58,26 @@ module.exports = function(app) {
         diet: req.user.diet
       });
     }
+  });
+  //Route to log daily results
+  app.post("/api/members", (req, res) => {
+    console.log("body", req.body);
+
+    db.Dailylog.create({
+      calories: req.body.calories,
+      exercise: req.body.exercise,
+      // eslint-disable-next-line camelcase
+      water_intake: req.body.water_intake,
+      sleep: req.body.sleep,
+      // eslint-disable-next-line camelcase
+      daily_score: req.body.daily_score
+    })
+      .then(response => {
+        console.log(response);
+        res.redirect(301, "/members");
+      })
+      .catch(err => {
+        console.log(err, "this is the err");
+      });
   });
 };
