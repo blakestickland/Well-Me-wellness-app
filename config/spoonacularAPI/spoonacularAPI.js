@@ -18,19 +18,12 @@ const apiUrl2 = API_PATH2;
 let id;
 const apiUrlExtension2 = "/information";
 const apiUrlExtension3 = "&includeNutrition=true";
+const query = apiUrl2 + id + apiUrlExtension2 + API_APP_KEY4 + apiUrlExtension3;
 
-$.ajax({
-  url: apiUrl,
-  method: "GET"
-}).then(response => {
-  console.log(apiUrl);
-  console.log(response);
-  console.log(response.results.length);
+fetch(apiUrl).then(response => {
   for (let i = 0; i < response.results.length; i++) {
     id = response.results[i].id;
     console.log(id);
-    const query =
-      apiUrl2 + id + apiUrlExtension2 + API_APP_KEY4 + apiUrlExtension3;
     console.log(query);
     $.ajax({
       url: query,
@@ -39,9 +32,11 @@ $.ajax({
       console.log(response.title);
       console.log(response.image);
       console.log(response.spoonacularSourceUrl);
-      recipesReturned = response;
+      recipesReturned.push(response);
+
+      module.exports = recipesReturned;
     });
-  }
+  }  // get recipes for 
 });
 // -------
 // to do change responses to objects to be called instead of console logged.
