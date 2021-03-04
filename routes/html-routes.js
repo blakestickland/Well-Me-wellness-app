@@ -24,7 +24,7 @@ module.exports = function(app) {
       console.log(req.user);
       return res.render("members", {
         style: "members.css",
-        name: req.user.name
+        user: req.user
       });
     }
     return res.render("signup", {

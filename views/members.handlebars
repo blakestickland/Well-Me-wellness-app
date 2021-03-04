@@ -17,7 +17,7 @@
 </nav>
 
 <!-- handlebars partials for members page only goals bar -->
-{{>goal-bar name=name}}
+{{>goal-bar user=user}}
 
 
 <!-- background image for page -->
@@ -29,7 +29,7 @@
                 <div class="translucent-form-overlay">
                     <form class="container" id="dailyLogForm">
                         <h3 class="text-center">Log Your Day</h3>
-                        <p class="memIntro text-center">Did you meet your goals today {{name}}?</p>
+                        <p class="memIntro text-center">Did you meet your goals today {{user.name}}?</p>
                         <p class="memIntro text-center">On a scale from <b>0</b> <i>Nope not today</i> to <b>10</b>
                             <i>Yeah I Nailed it!</i> Move the Sliders below
                         </p>
