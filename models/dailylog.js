@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable indent */
-module.exports = (sequelize, DataTypes) => {
-    const Dailylog = sequelize.define("dailylog", {
+module.exports = function(sequelize, DataTypes) {
+    const Dailylog = sequelize.define("Dailylog", {
         calories: {
             type: DataTypes.INTEGER,
             alowNull: false,
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
                 min: 0
             },
         },
-        excercise: {
+        exercise: {
             type: DataTypes.INTEGER,
             alowNull: false,
             validate: {
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             alowNull: false,
             validate: {
-                max: 10,
+                max: 100,
                 min: 0
             },
         },
