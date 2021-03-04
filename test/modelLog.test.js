@@ -1,7 +1,6 @@
-const dailylogTest = require("../models/dailylog");
-const indexTest = require("../models/index");
-const userTest = require("../models/user");
-
+// const dailylogTest = require("../models/dailylog");
+// const indexTest = require("../models/index");
+// const userTest = require("../models/user");
 
 test("Can set office number via constructor argument", () => {
   const testValue = 100;
@@ -9,7 +8,8 @@ test("Can set office number via constructor argument", () => {
   expect(e.officeNumber).toBe(testValue);
 });
 
-test('getRole() should return "Manager"', () => {
+// eslint-disable-next-line prettier/prettier
+test("getRole() should return \"Manager\"", () => {
   const testValue = "Manager";
   const e = new Manager("Jack", 1, "test@test.com", 100);
   expect(e.getRole()).toBe(testValue);
