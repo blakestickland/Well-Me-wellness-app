@@ -20,7 +20,7 @@ if (dailyLogForm) {
       sleep: parseInt(sleepInput.value)
     };
     const userDataLength = 4;
-    // calculates daily score and calls dailyLog Fetch request
+    // calculates daily score and initiates dailyLog Fetch POST request
     const dailyScore =
       Object.values(userData).reduce(
         (previous, current) => previous + current
@@ -31,9 +31,8 @@ if (dailyLogForm) {
     // removes daily log form to show daily score
     dailyLogForm.classList.add("hide");
     scoreForm.classList.remove("hide");
-    getScore(user)
   });
-}
+};
 // POST request for the daily log
 const dailyLog = userData => {
   fetch("/api/members", {
@@ -44,23 +43,6 @@ const dailyLog = userData => {
     body: JSON.stringify(userData)
   })
     .then(response => response.json())
+    .then(() => window.location.replace("/members"))
     .catch(err => console.error(err));
-};
-//GET request for score
-const getScore = (user) => {
-  userId = user || "";
-  if(userId){
-    userId = `/?user_id=${userId}`;
-  }
-  fetch(`/api/members${userId}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(user),
-  })
-    .then(response => response.json())
-    .then(() => {
-      window.location.replace("/members").catch(err => console.error(err));
-    });
 };
