@@ -24,7 +24,7 @@ module.exports = function(app) {
       console.log(req.user);
       return res.render("members", {
         style: "members.css",
-        name: req.user.name
+        user: req.user
       });
     }
     return res.render("signup", {
@@ -35,7 +35,8 @@ module.exports = function(app) {
   //Routing for graph page
   app.get("/graph", (req, res) => {
     res.render("graph", {
-      style: "graph.css"
+      style: "graph.css",
+      user: req.user
     });
   });
 };
