@@ -46,13 +46,13 @@ module.exports = function(sequelize, DataTypes) {
         },
     });
 
-    // Dailylog.associate = (models) => {
-    //     Dailylog.belongsTo(models.User, {
-    //         foreignKey: {
-    //             allowNull: false,
-    //         },
-    //     });
-    // };
+    Dailylog.associate = (models) => {
+        Dailylog.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false,
+            },
+        });
+    };
     return Dailylog;
 
 };

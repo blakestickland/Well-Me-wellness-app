@@ -21,7 +21,7 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, (req, res) => {
     console.log(isAuthenticated);
     if (isAuthenticated) {
-      console.log(req.user);
+      console.log("This is req.user in html routes", req.user);
       return res.render("members", {
         style: "members.css",
         name: req.user.name

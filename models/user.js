@@ -74,12 +74,12 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   // // eslint-disable-next-line prettier/prettier
-  // User.associate = (models) => {
-  //   User.hasMany(models.Dailylog, {
-  //     // eslint-disable-next-line prettier/prettier
-  //     onDelete: "cascade",
-  //   });
-  // };
+  User.associate = (models) => {
+    User.hasMany(models.Dailylog, {
+      // eslint-disable-next-line prettier/prettier
+      onDelete: "cascade",
+    });
+  };
 
   return User;
 };
