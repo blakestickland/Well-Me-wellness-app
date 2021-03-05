@@ -17,7 +17,6 @@ h1 {
 #getLoginForm {
     height: 50px;
     font-size: 18px;
-    padding: 10px;
     margin-left: 100px;
     margin-top: 30px;
     border-radius: 0.5rem;
@@ -37,7 +36,7 @@ h1 {
   color: white;
   margin: auto;
   margin-left: 100px;
-  margin-top: 30px;
+  margin-top: 20px;
   border-radius: 0.5rem;
 }
 .columns.row {
@@ -56,7 +55,7 @@ input::placeholder {
 }
 input, select{
   height: 1.8rem !important;
-  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 .inputPlaceholder{
   color: dark-gray;
