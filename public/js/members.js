@@ -4,10 +4,10 @@ $(document).foundation();
 // $(document).ready(() => {
 //   // This file just does a GET request to figure out which user is logged in
 //   // and updates the HTML on the page
-//   $.get("/api/user_data").then(data => {
-//     $(".member-name").text(data.name);
-//   });
-// });
+//$.get("/api/user_data").then(data => {
+//  $(".member-name").text(data.name);
+//});
+
 const dailyLogForm = document.getElementById("dailyLogForm");
 const dailyScoreForm = document.getElementById("dailyScoreForm");
 const calorieInput = document.getElementById("sliderOutputCalories");
