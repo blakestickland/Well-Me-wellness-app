@@ -97,6 +97,7 @@ input, select{
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  max-width: 100%,
 }
 
 /* Cards CSS */
