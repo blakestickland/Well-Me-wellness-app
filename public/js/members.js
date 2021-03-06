@@ -11,10 +11,10 @@ $(document).foundation();
 const dailyLogForm = document.getElementById("dailyLogForm");
 const dailyScoreForm = document.getElementById("dailyScoreForm");
 const calorieInput = document.getElementById("sliderOutputCalories");
-const exerciseInput = document.getElementById("sliderOutputExcercise");
+const exerciseInput = document.getElementById("sliderOutputExercise");
 const waterInput = document.getElementById("sliderOutputWater");
 const sleepInput = document.getElementById("sliderOutputSleep");
-
+const score = document.getElementById("score");
 // Event Listener for the daily log form
 if (dailyLogForm) {
   dailyLogForm.addEventListener("submit", event => {
@@ -38,6 +38,8 @@ if (dailyLogForm) {
     // removes daily log form to show daily score
     dailyLogForm.classList.add("hide");
     dailyScoreForm.classList.remove("hide");
+    //append score to page
+    score.innerHTML = dailyScore;
   });
 }
 // Fetch request for the daily log
