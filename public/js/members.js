@@ -2,7 +2,7 @@
 $(document).foundation();
 
 const dailyLogForm = document.getElementById("dailyLogForm");
-const scoreForm = document.querySelector(".scoreForm");
+const dailyScoreForm = document.querySelector("#dailyScoreForm");
 const calorieInput = document.getElementById("sliderOutputCalories");
 const exerciseInput = document.getElementById("sliderOutputExercise");
 const waterInput = document.getElementById("sliderOutputWater");
