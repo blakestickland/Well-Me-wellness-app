@@ -1,8 +1,8 @@
 // Sets the css package foundation up to listen for the sliders
 $(document).foundation();
 
-const dailyLogForm = document.getElementById("dailyLogForm");
-const dailyScoreForm = document.querySelector("#dailyScoreForm");
+const dailyLogForm = document.querySelector(".logForm");
+const dailyScoreForm = document.querySelector(".scoreForm");
 const calorieInput = document.getElementById("sliderOutputCalories");
 const exerciseInput = document.getElementById("sliderOutputExercise");
 const waterInput = document.getElementById("sliderOutputWater");
@@ -46,6 +46,5 @@ const dailyLog = userData => {
     body: JSON.stringify(userData)
   })
     .then(response => response.json())
-    .then(() => window.location.replace("/members"))
-    .catch(err => console.error(err));
+     .catch(err => console.error(err));
 };
