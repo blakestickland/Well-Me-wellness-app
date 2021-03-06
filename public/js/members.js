@@ -1,20 +1,14 @@
 // Sets the css package foundation up to listen for the sliders
 $(document).foundation();
 
-// $(document).ready(() => {
-//   // This file just does a GET request to figure out which user is logged in
-//   // and updates the HTML on the page
-//$.get("/api/user_data").then(data => {
-//  $(".member-name").text(data.name);
-//});
-
 const dailyLogForm = document.getElementById("dailyLogForm");
-const dailyScoreForm = document.getElementById("dailyScoreForm");
+const dailyScoreForm = document.querySelector("#dailyScoreForm");
 const calorieInput = document.getElementById("sliderOutputCalories");
 const exerciseInput = document.getElementById("sliderOutputExercise");
 const waterInput = document.getElementById("sliderOutputWater");
 const sleepInput = document.getElementById("sliderOutputSleep");
 const score = document.getElementById("score");
+
 // Event Listener for the daily log form
 if (dailyLogForm) {
   dailyLogForm.addEventListener("submit", event => {
@@ -27,7 +21,7 @@ if (dailyLogForm) {
       sleep: parseInt(sleepInput.value)
     };
     const userDataLength = 4;
-    // calculates daily score and calls dailyLog Fetch request
+    // calculates daily score and initiates dailyLog Fetch POST request
     const dailyScore =
       Object.values(userData).reduce(
         (previous, current) => previous + current
@@ -42,7 +36,7 @@ if (dailyLogForm) {
     score.innerHTML = dailyScore;
   });
 }
-// Fetch request for the daily log
+// POST request for the daily log
 const dailyLog = userData => {
   fetch("/api/members", {
     method: "POST",
@@ -52,8 +46,6 @@ const dailyLog = userData => {
     body: JSON.stringify(userData)
   })
     .then(response => response.json())
-    .then(() => {
-      window.location.replace("/members");
-    })
+    .then(() => window.location.replace("/members"))
     .catch(err => console.error(err));
 };

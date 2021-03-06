@@ -50,12 +50,13 @@ module.exports = function(app) {
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back th
+      // Otherwise send back the user data
       res.json({
         name: req.user.name,
         weight: req.user.weight,
         height: req.user.height,
-        diet: req.user.diet
+        diet: req.user.diet,
+        UserId: req.user.id
       });
     }
   });
@@ -64,6 +65,7 @@ module.exports = function(app) {
     console.log("body", req.body);
 
     db.Dailylog.create({
+      UserId: req.user.id,
       calories: req.body.calories,
       exercise: req.body.exercise,
       // eslint-disable-next-line camelcase
@@ -74,7 +76,7 @@ module.exports = function(app) {
     })
       .then(response => {
         console.log(response);
-        res.redirect(301, "/members");
+        res.redirect(302, "/members");
       })
       .catch(err => {
         console.log(err, "this is the err");

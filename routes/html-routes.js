@@ -17,16 +17,17 @@ module.exports = function(app) {
   });
   // Routing for the members page
   // Authenticated middleware on this route.
-  // User not logged will be redirected to the signup page
   app.get("/members", isAuthenticated, (req, res) => {
     console.log(isAuthenticated);
     if (isAuthenticated) {
-      console.log(req.user);
+      console.log("This is req.user in html routes", req.user);
       return res.render("members", {
         style: "members.css",
-        user: req.user
+        name: req.user.name,
+        UserId: req.user.id
       });
     }
+    // User not logged in will be redirected to the signup page
     return res.render("signup", {
       style: "signup.css"
     });
