@@ -23,6 +23,7 @@ module.exports = function(app) {
       console.log("This is req.user in html routes", req.user);
       return res.render("members", {
         style: "members.css",
+        UserId: req.user.id,
         user: req.user
       });
     }
