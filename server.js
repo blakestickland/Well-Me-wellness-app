@@ -19,7 +19,12 @@ app.use(express.json());
 app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
 app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+  session({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: false,
+    cookie: { _expires: 60000000 }
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -27,7 +32,6 @@ app.use(passport.session());
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
-require("./routes/dailylog-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
