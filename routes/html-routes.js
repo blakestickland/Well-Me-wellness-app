@@ -25,7 +25,6 @@ module.exports = function(app) {
         style: "members.css",
         name: req.user.name,
         UserId: req.user.id
-
       });
     }
     // User not logged in will be redirected to the signup page
