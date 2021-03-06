@@ -25,6 +25,7 @@ module.exports = function(app) {
         style: "members.css",
         name: req.user.name,
         UserId: req.user.id
+
       });
     }
     // User not logged in will be redirected to the signup page
@@ -36,7 +37,8 @@ module.exports = function(app) {
   //Routing for graph page
   app.get("/graph", (req, res) => {
     res.render("graph", {
-      style: "graph.css"
+      style: "graph.css",
+      user: req.user
     });
   });
 };

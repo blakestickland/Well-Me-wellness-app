@@ -1,5 +1,8 @@
 // Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
 const bcrypt = require("bcryptjs");
+//requiring npm package for health calculations
+
+const calculate = require("fitness-health-calculations");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define("User", {
@@ -57,6 +60,12 @@ module.exports = function(sequelize, DataTypes) {
     goal: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    idealWeight: {
+      type: DataTypes.INTEGER
+    },
+    idealCalories: {
+      type: DataTypes.INTEGER
     }
   });
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
@@ -71,6 +80,36 @@ module.exports = function(sequelize, DataTypes) {
       bcrypt.genSaltSync(10),
       null
     );
+  });
+
+  User.addHook("beforeCreate", user => {
+    const idealBodyWeight = calculate.idealBodyWeight(
+      parseInt(user.height),
+      user.gender
+    );
+    function idealWeight() {
+      console.log("Recommended Body Weight:", idealBodyWeight);
+    }
+    idealWeight();
+    user.idealWeight = idealBodyWeight;
+  });
+
+  User.addHook("beforeCreate", user => {
+    console.log("value for user.activity", user.activity);
+    const totalCaloricNeeds = calculate.caloricNeeds(
+      user.gender,
+      parseInt(user.age),
+      parseInt(user.height),
+      parseInt(user.weight),
+      user.activity,
+      user.goal,
+      "normal"
+    );
+    function CaloricNeeds() {
+      console.log("REcommended caloriesintakte", totalCaloricNeeds);
+    }
+    CaloricNeeds();
+    user.idealCalories = totalCaloricNeeds;
   });
 
   // // eslint-disable-next-line prettier/prettier
