@@ -21,21 +21,37 @@ module.exports = function(app) {
   // User not logged will be redirected to the signup page
   app.get("/members", isAuthenticated, (req, res) => {
     const test = myFunc();
-    const test2 = getRecipes();
-    console.log(test2);
-    // console.log(test2.firstName);
-    // console.log(test2.lastName);
-    // console.log(test2.age);
-    // console.log(test2.eyeColor);
-    // console.log(test2.beard);
-    // console.log(isAuthenticated);
+    // getRecipes();
+    async function waitForRecipes() {
+      try {
+        const response = await getRecipes();
+        console.log("This is the html-routes test2 response: " + response);
+        // responseTitle;
+        return response;
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    waitForRecipes();
+    console.log("This is the html-routes test response: " + test);
+    // for (let i = 0; i < test2.response.length; i++) {
+    //   console.log(test2[i].title);
+    //   console.log(response[i].image);
+    //   console.log(response[i].id);
+    //   console.log(response[i].spoonacularSourceUrl);
+    //   console.log(response[i].nutrition.nutrients[0].unit);
+    //   console.log(response[i].nutrition.nutrients[0].name);
+    //   console.log(response[i].nutrition.nutrients[0].amount);
+    //   // recipesReturned.push(response);
+    // }
+    console.log(isAuthenticated);
     if (isAuthenticated) {
       console.log(req.user);
       return res.render("members", {
         style: "members.css",
         name: req.user.name,
         four: test
-        // sixty: test2.beard
+        // sixty: recipes[].title
       });
     }
     return res.render("signup", {
