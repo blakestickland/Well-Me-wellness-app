@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!userData.email || !userData.password) {
         return;
       }
-      // Call signUpUser function
+      // Initiates signUpUser Fetch POST request
       signUpUser(userData);
       usernameInput.value = "";
       emailInput.value = "";
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       goalInput.value = "";
     });
   }
-  // fetch request to signup user
+  // fetch POST request to signup user
   const signUpUser = userData => {
     fetch("/api/signup", {
       method: "POST",

@@ -52,12 +52,12 @@ label {
 /* Form */
 .translucent-form-overlay {
   background-color: rgba(54, 54, 54, 0.8);
-  position: absolute;
+  /* position: absolute; */
   max-width: 500px;
   width: 100%;
   padding: 20px;
   color: white;
-  margin-left: 100px;
+  margin-left: 70px;
   margin-top: 70px;
   border-radius: 0.5rem;
 }
@@ -97,6 +97,7 @@ input, select{
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  max-width: 100%,
 }
 
 /* Cards CSS */
@@ -139,4 +140,17 @@ input, select{
 
 .label {
   font-size: 18px;
+}
+/* Recipe link */
+.recipeImg{
+  border-radius: 0.5rem;
+  margin-left: 0px;
+}
+#recipeLink{
+  width: 500px;
+}
+
+/* update form */
+#changeWeight{
+  width: 500px;
 }
