@@ -9,6 +9,12 @@ module.exports = function(app) {
       style: "signup.css"
     });
   });
+  //route to redirect from login to signup page
+  app.get("/signup", (req, res) => {
+    res.render("signup", {
+      style: "signup.css"
+    });
+  });
   // Routing for the login page
   app.get("/login", (req, res) => {
     res.render("login", {
@@ -20,7 +26,6 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, (req, res) => {
     console.log(isAuthenticated);
     if (isAuthenticated) {
-      console.log("This is req.user in html routes", req.user);
       return res.render("members", {
         style: "members.css",
         name: req.user.name,
