@@ -23,8 +23,8 @@ module.exports = function(app) {
       console.log("This is req.user in html routes", req.user);
       return res.render("members", {
         style: "members.css",
-        name: req.user.name,
-        UserId: req.user.id
+        UserId: req.user.id,
+        user: req.user
       });
     }
     // User not logged in will be redirected to the signup page
