@@ -1,12 +1,15 @@
 "use strict";
 
-const API_APP_KEY2 = "&apiKey=74f87b20cfd04c5aa17c1f09d672b5fa";
-const API_APP_KEY4 = "?apiKey=12379bbb78244c0189010a85deb6a8e3"; // third API key for times when 402 error is returned
+// Use the dotenv file to store security related data such as API keys and passwords.
+require("dotenv").config();
+
+const API_APP_KEY2 = "&apiKey=" + process.env.API_KEY2;
+const API_APP_KEY4 = "&apiKey=" + process.env.API_KEY4; // another API key for times when 402 error is returned
 
 const API_PATH = "https://api.spoonacular.com/recipes/complexSearch";
 const API_PATH2 = "https://api.spoonacular.com/recipes/";
 // eslint-disable-next-line no-unused-vars
-const recipesReturned = [];
+// const recipesReturned = [];
 
 // Gets a bunch of recipes matching the keyword searched.
 const apiUrl = API_PATH;
@@ -17,7 +20,7 @@ apiUrl += apiUrlExtension + apiNumberOfResults + API_APP_KEY2;
 const apiUrl2 = API_PATH2;
 let id;
 const apiUrlExtension2 = "/information";
-const apiUrlExtension3 = "&includeNutrition=true";
+const apiUrlExtension3 = "?includeNutrition=true";
 
 $.ajax({
   url: apiUrl,
@@ -30,7 +33,7 @@ $.ajax({
     id = response.results[i].id;
     console.log(id);
     const query =
-      apiUrl2 + id + apiUrlExtension2 + API_APP_KEY4 + apiUrlExtension3;
+      apiUrl2 + id + apiUrlExtension2 + apiUrlExtension3 + API_APP_KEY4;
     console.log(query);
     $.ajax({
       url: query,

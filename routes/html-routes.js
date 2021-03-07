@@ -9,6 +9,12 @@ module.exports = function(app) {
       style: "signup.css"
     });
   });
+  //route to redirect from login to signup page
+  app.get("/signup", (req, res) => {
+    res.render("signup", {
+      style: "signup.css"
+    });
+  });
   // Routing for the login page
   app.get("/login", (req, res) => {
     res.render("login", {
@@ -17,16 +23,16 @@ module.exports = function(app) {
   });
   // Routing for the members page
   // Authenticated middleware on this route.
-  // User not logged will be redirected to the signup page
   app.get("/members", isAuthenticated, (req, res) => {
     console.log(isAuthenticated);
     if (isAuthenticated) {
-      console.log(req.user);
       return res.render("members", {
         style: "members.css",
-        name: req.user.name
+        UserId: req.user.id,
+        user: req.user
       });
     }
+    // User not logged in will be redirected to the signup page
     return res.render("signup", {
       style: "signup.css"
     });
@@ -35,7 +41,16 @@ module.exports = function(app) {
   //Routing for graph page
   app.get("/graph", (req, res) => {
     res.render("graph", {
-      style: "graph.css"
+      style: "graph.css",
+      user: req.user
     });
   });
+  //Routing for recipeInspiration page
+  app.get("/recipeInspiration", (req, res) => {
+    res.render("recipeInspiration", {
+      style: "recipes.css",
+      user: req.user
+    });
+  });
+  //Route to update User Goals
 };
