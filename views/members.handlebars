@@ -9,6 +9,7 @@
                 <li><a href="/">Home</a></li>
                 <li class="is-active"><a href="#">Daily Log</a></li>
                 <li><a href="/graph">Weekly Results</a></li>
+                <li><a href="/recipeInspiration">Recipes</a></li>
                 <li><a href="/logout" class="logout">Logout</a></li>
 
             </ul>
@@ -107,11 +108,79 @@
             </div>
         </div>
 
-        <!-- recipe section -->
+        <!-- change your weight goals-->
         <div class="col-sm-12 col-lg-6">
+            <!-- update weight goals-->
+            <div class="row">
+                <div id="changeWeight" class="col-sm-12 col-lg-6">
+                    <div class="translucent-form-overlay">
+                        <form class="container" id="changeYourWeight">
+                            <h3 class="text-center">Update your Weight</h3>
+                            <div class="row columns">
+                                <label>Weight
+                                    <input class="weightUpdate" type="text" name="location" placeholder="Enter in kg">
+                                </label>
+                            </div>
+                            <div class="row columns">
+                                <label>Activity
+                                    <select class="activityUpdate" name="status" type="text">
+                                        <option value="">Select activity level most suited to you</option>
+                                        <option value="sedentary">Sedentary - little to no excercise + work a desk
+                                            job
+                                        </option>
+                                        <option value="light">Light - light excercise 1-3 days/week</option>
+                                        <option value="moderate">Moderate - moderate excercise 3-5 days/week
+                                        </option>
+                                        <option value="high">High - heavy excercise 6-7 days/week</option>
+                                        <option value="extreme">Extreme - very heavy excercise, hard labor job,
+                                            training
+                                            2x/day</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="row columns">
+                                <label>Goal
+                                    <select class="goalUpdate" name="status" type="text">
+                                        <option value="">Choose your weight goal</option>
+                                        <option value="reduction">Lose weight</option>
+                                        <option value="maintain">Maintain current weight</option>
+                                        <option value="gain">Gain weight</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <button type="submit" class="primary button expanded search-button">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-            <!-- recipes go here when API called on page load -->
-            {{recipes}}
+            {{!-- toast when user goals are updated --}}
+            {{!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src="..." class="rounded mr-2" alt="...">
+                    <strong class="mr-auto">Bootstrap</strong>
+                    <small>11 mins ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
+                </div>
+            </div> --}}
+
+            {{!-- view recipes --}}
+            <div class="row">
+                <div id="recipeLink" class="col-sm-12 col-lg-6">
+                    <div class="translucent-form-overlay">
+                        <h3 class="text-center">Recipe Inspiration</h3>
+                        <p class="recipeIntro text-center">Find healthy recipes based on your food preference and
+                            recommended calorie intake.</p>
+                        <img class="recipeImg" src="../assets/healthyCooking.jpg">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>

@@ -40,4 +40,12 @@ module.exports = function(app) {
       user: req.user
     });
   });
+  //Routing for recipeInspiration page
+  app.get("/recipeInspiration", (req, res) => {
+    res.render("recipeInspiration", {
+      style: "recipes.css",
+      user: req.user
+    });
+  });
+  //Route to update User Goals
 };

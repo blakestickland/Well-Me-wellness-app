@@ -61,7 +61,7 @@ module.exports = function(app) {
     }
   });
   //Route to log daily results
-  app.post("/api/members", (req, res) => {
+  app.post("/api/members", isAuthenticated, (req, res) => {
     console.log("body", req.body);
 
     db.Dailylog.create({
@@ -80,6 +80,21 @@ module.exports = function(app) {
       })
       .catch(err => {
         console.log(err, "this is the err");
+      });
+  });
+  //Route recipe page
+  app.get("/api/recipeInspiration", isAuthenticated, (req, res) => {
+    res
+      .json({
+        name: req.user.name,
+        diet: req.user.diet,
+        UserId: req.user.id
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
       });
   });
 };
