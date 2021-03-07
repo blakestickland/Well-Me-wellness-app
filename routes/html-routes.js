@@ -28,7 +28,7 @@ module.exports = function(app) {
     if (isAuthenticated) {
       return res.render("members", {
         style: "members.css",
-        name: req.user.name,
+        user: req.user,
         UserId: req.user.id
       });
     }
