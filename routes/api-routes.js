@@ -111,7 +111,6 @@ module.exports = function(app) {
       }
     )
       .then((response) => {
-        console.log(response);
         res.redirect(302, "/members");
       })
       .catch((err) => {

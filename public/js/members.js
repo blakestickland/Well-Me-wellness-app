@@ -17,7 +17,7 @@ if (dailyLogForm) {
       exercise: parseInt(exerciseInput.value),
       // eslint-disable-next-line camelcase
       water_intake: parseInt(waterInput.value),
-      sleep: parseInt(sleepInput.value),
+      sleep: parseInt(sleepInput.value)
     };
     const userDataLength = 4;
     // calculates daily score and initiates dailyLog Fetch POST request
