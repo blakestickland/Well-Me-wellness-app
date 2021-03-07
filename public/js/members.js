@@ -1,4 +1,3 @@
-// Sets the css package foundation up to listen for the sliders
 $(document).foundation();
 
 const dailyLogForm = document.getElementById("dailyLogForm");
@@ -28,6 +27,7 @@ if (dailyLogForm) {
       ) / userDataLength;
     // eslint-disable-next-line camelcase
     userData.daily_score = dailyScore;
+    userData.UserId = "";
     dailyLog(userData);
     // removes daily log form to show daily score
     dailyLogForm.classList.add("hide");
@@ -49,3 +49,41 @@ const dailyLog = userData => {
     .then(() => window.location.replace("/members"))
     .catch(err => console.error(err));
 };
+// update users weight and goals in the database
+const weightUpdate = document.querySelector(".weightUpdate");
+const activityUpdate = document.querySelector(".activityUpdate");
+const goalUpdate = document.querySelector(".goalUpdate");
+const weightForm = document.getElementById("changeYourWeight");
+//event listener for updateweight form
+if (weightForm) {
+  weightForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const updateData = {
+      weight: weightUpdate.value.trim(),
+      activity: activityUpdate.value.trim(),
+      goal: goalUpdate.value.trim()
+    };
+    console.log("userdata to update", updateData);
+    updateUser(updateData);
+  });
+}
+// Patch request to update user data
+const updateUser = updateData => {
+  fetch("/api/members", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updateData)
+  })
+    .then(() => {
+      window.location.replace("/members");
+    })
+    .catch(err => console.error(err));
+};
+// send the user to the recipe page
+const imgLink = document.querySelector(".recipeImg");
+
+imgLink.addEventListener("click", () => {
+  window.location.href = "/recipeInspiration";
+});
