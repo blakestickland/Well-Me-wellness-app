@@ -24,16 +24,16 @@ module.exports = function(app) {
   // Routing for the members page
   // Authenticated middleware on this route.
   app.get("/members", isAuthenticated, (req, res) => {
-    getRecipes().then(function(response) {
-      console.log(JSON.stringify(response[0].summary));
-    })
+    getRecipes().then(response => {
+      console.log(JSON.stringify(response[0].title));
+      return response;
+    });
     // const fruties = ['apple', 'orange', 'kiwi']
 
     // let transformed = []
     // for (let index = 0; index < fruiies.length; index++) {
     //   const element = fruiies[index];
     //   transformed.push('a')
-      
     // }
     // const fruit2 = fruities.map((fruit) => {
     //   return 'a'
@@ -79,7 +79,8 @@ module.exports = function(app) {
         UserId: req.user.id,
         // example of format to use to pass info
         user: req.user
-        // sixty: recipes.id or similar goes here to pass throug hto handlebars
+        // recipes.id or similar goes here to pass throug hto handlebars
+        // sixty: response[0].title
       });
     }
     // User not logged in will be redirected to the signup page
