@@ -106,7 +106,7 @@ module.exports = function(sequelize, DataTypes) {
       "normal"
     );
     function CaloricNeeds() {
-      console.log("REcommended caloriesintakte", totalCaloricNeeds);
+      console.log("Recommended caloriesintake", totalCaloricNeeds);
     }
     CaloricNeeds();
     user.idealCalories = totalCaloricNeeds;
