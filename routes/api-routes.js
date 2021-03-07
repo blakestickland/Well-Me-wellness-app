@@ -9,7 +9,7 @@ module.exports = function(app) {
     const loginUser = {
       email: req.user.email,
       id: req.user.id,
-      name: req.user.name
+      name: req.user.name,
     };
     res.json(loginUser);
   });
@@ -27,13 +27,13 @@ module.exports = function(app) {
       gender: req.body.gender,
       diet: req.body.diet,
       activity: req.body.activity,
-      goal: req.body.goal
+      goal: req.body.goal,
     })
-      .then(response => {
+      .then((response) => {
         console.log(response);
         res.redirect(301, "/members");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err, "this is the err");
       });
   });
@@ -63,7 +63,6 @@ module.exports = function(app) {
   //Route to log daily results
   app.post("/api/members", isAuthenticated, (req, res) => {
     console.log("body", req.body);
-
     db.Dailylog.create({
       UserId: req.user.id,
       calories: req.body.calories,
@@ -72,13 +71,13 @@ module.exports = function(app) {
       water_intake: req.body.water_intake,
       sleep: req.body.sleep,
       // eslint-disable-next-line camelcase
-      daily_score: req.body.daily_score
+      daily_score: req.body.daily_score,
     })
-      .then(response => {
+      .then((response) => {
         console.log(response);
         res.redirect(302, "/members");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err, "this is the err");
       });
   });
@@ -88,13 +87,35 @@ module.exports = function(app) {
       .json({
         name: req.user.name,
         diet: req.user.diet,
-        UserId: req.user.id
+        UserId: req.user.id,
       })
-      .then(response => {
+      .then((response) => {
         console.log(response);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
+      });
+  });
+  //Route to update user Weight goal
+  app.patch("/api/members", isAuthenticated, (req, res) => {
+    db.User.update(
+      {
+        weight: req.body.weight,
+        activity: req.body.activity,
+        goal: req.body.goal
+      },
+      {
+        where: {
+          id: req.user.id
+        }
+      }
+    )
+      .then((response) => {
+        console.log(response);
+        res.redirect(302, "/members");
+      })
+      .catch((err) => {
+        console.log(err, "this is the err");
       });
   });
 };

@@ -10,7 +10,7 @@ const score = document.getElementById("score");
 
 // Event Listener for the daily log form
 if (dailyLogForm) {
-  dailyLogForm.addEventListener("submit", (event) => {
+  dailyLogForm.addEventListener("submit", event => {
     event.preventDefault();
     const userData = {
       calories: parseInt(calorieInput.value),
@@ -27,6 +27,7 @@ if (dailyLogForm) {
       ) / userDataLength;
     // eslint-disable-next-line camelcase
     userData.daily_score = dailyScore;
+    userData.UserId = "";
     dailyLog(userData);
     // removes daily log form to show daily score
     dailyLogForm.classList.add("hide");
@@ -36,44 +37,44 @@ if (dailyLogForm) {
   });
 }
 // POST request for the daily log
-const dailyLog = (userData) => {
+const dailyLog = userData => {
   fetch("/api/members", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(userData),
+    body: JSON.stringify(userData)
   })
-    .then((response) => response.json())
+    .then(response => response.json())
     .then(() => window.location.replace("/members"))
-    .catch((err) => console.error(err));
+    .catch(err => console.error(err));
 };
 // update users weight and goals in the database
 const weightUpdate = document.querySelector(".weightUpdate");
 const activityUpdate = document.querySelector(".activityUpdate");
 const goalUpdate = document.querySelector(".goalUpdate");
 const weightForm = document.getElementById("changeYourWeight");
-//event listener for the form
+//event listener for updateweight form
 if (weightForm) {
-  weightForm.addEventListener("submit", (event) => {
+  weightForm.addEventListener("submit", event => {
     event.preventDefault();
     const updateData = {
       weight: weightUpdate.value.trim(),
       activity: activityUpdate.value.trim(),
-      goal: goalUpdate.value.trim(),
+      goal: goalUpdate.value.trim()
     };
     console.log("userdata to update", updateData);
     updateUser(updateData);
   });
 }
-// POST request to update user data
+// Patch request to update user data
 const updateUser = updateData => {
   fetch("/api/members", {
-    method: "POST",
+    method: "PATCH",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json"
     },
-    body: JSON.stringify(updateData),
+    body: JSON.stringify(updateData)
   })
     .then(() => {
       window.location.replace("/members");
