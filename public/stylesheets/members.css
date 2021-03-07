@@ -38,17 +38,6 @@ h1 {
 label {
   font-size: 18px;
 }
-/* goals bar */
-.title-bar {
-  height: 70px;
-  align-items: center;
-}
-.colBar {
-  padding: 20px;
-}
-.bari {
-  padding-right: 20px;
-}
 /* Form */
 .translucent-form-overlay {
   background-color: rgba(54, 54, 54, 0.8);
@@ -109,7 +98,14 @@ input, select{
 /* } */
 
 /*Styling for goal bar*/
+.colBar {
+  padding: 20px;
+}
+.bari {
+  padding-right: 20px;
+}
 .title-bar {
+  align-items: center;
   height: 70px;
   background: #08d489;
   color: #ffffff;
@@ -125,10 +121,6 @@ input, select{
   color: red;
 }
 
-.button.primary {
-  background-color: #08d489;
-}
-
 .fa-utensils, .fa-running, .fa-glass-whiskey, .fa-bed, .fa-child {
   padding-right: 10px;
 }
@@ -137,20 +129,47 @@ input, select{
   background: 0 0;
   color:  #08d489;
 }
-
 .label {
   font-size: 18px;
+}
+/* buttons */
+.button{
+  border-radius:  0.5rem;
+}
+.button.primary {
+  background-color: #08d489;
 }
 /* Recipe link */
 .recipeImg{
   border-radius: 0.5rem;
   margin-left: 0px;
 }
+.recipeImg:hover{
+  opacity: 0.5;
+  cursor: pointer;
+}
 #recipeLink{
   width: 500px;
 }
-
 /* update form */
 #changeWeight{
   width: 500px;
+  padding: 0px !important;
+}
+.update{
+  margin-bottom: 0px !important;
+  border-radius:  0.5rem;
+
+}
+.updateInput{
+  border-radius:  0.5rem;
+}
+/* media queries */
+@media only screen and (min-width: 1220px) {
+  .translucent-form-overlay {
+    background-color: rgba(54, 54, 54, 0.8);
+    /* position: absolute; */
+    max-width: 500px;
+    width: 100%;
+    margin-left: 20px;
 }
