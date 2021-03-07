@@ -24,9 +24,43 @@ module.exports = function(app) {
   // Routing for the members page
   // Authenticated middleware on this route.
   app.get("/members", isAuthenticated, (req, res) => {
+    console.log(isAuthenticated);
+    if (isAuthenticated) {
+      return res.render("members", {
+        style: "members.css",
+        UserId: req.user.id,
+        user: req.user
+      });
+    }
+    // User not logged in will be redirected to the signup page
+    return res.render("signup", {
+      style: "signup.css"
+    });
+  });
+
+  //Routing for graph page
+  app.get("/graph", (req, res) => {
+    res.render("graph", {
+      style: "graph.css",
+      user: req.user
+    });
+  });
+  //Routing for recipeInspiration page
+  app.get("/recipeInspiration", (req, res) => {
     getRecipes().then(response => {
-      console.log(JSON.stringify(response[0].title));
+      console.log(response);
+      res.render("recipeInspiration", {
+        style: "recipes.css",
+        user: req.user,
+        recipeTitle: response[0].title,
+        recipeImage: response[0].image,
+        recipeUrl: response[0].spoonacularSourceUrl,
+        recipeNutrientsUnit: response[0].nutrition.nutrients[0].unit,
+        recipeNutrientsName: response[0].nutrition.nutrients[0].name,
+        recipeNutrientsAmount: response[0].nutrition.nutrients[0].amount
+      });
       return response;
+    });
     });
     // const fruties = ['apple', 'orange', 'kiwi']
 
@@ -53,7 +87,7 @@ module.exports = function(app) {
     //       recipeTitle: response.title,
     //       // recipeImage: response.image,
     //       // recipeId: response.id,
-    //       // recipeUrl: response.url,
+    //       // recipeUrl: response.spoonacularSourceUrl,
     //       // recipeNutrientsUnit: response.nutrition.nutrients[0].unit,
     //       // recipeNutrientsName: response.nutrition.nutrients[0].name,
     //       // recipeNutrientsAmount: response.nutrition.nutrients[0].amount,
@@ -72,36 +106,6 @@ module.exports = function(app) {
     //   }
     //   return response;
     // });
-    console.log(isAuthenticated);
-    if (isAuthenticated) {
-      return res.render("members", {
-        style: "members.css",
-        UserId: req.user.id,
-        // example of format to use to pass info
-        user: req.user
-        // recipes.id or similar goes here to pass throug hto handlebars
-        // sixty: response[0].title
-      });
-    }
-    // User not logged in will be redirected to the signup page
-    return res.render("signup", {
-      style: "signup.css"
-    });
-  });
-
-  //Routing for graph page
-  app.get("/graph", (req, res) => {
-    res.render("graph", {
-      style: "graph.css",
-      user: req.user
-    });
-  });
-  //Routing for recipeInspiration page
-  app.get("/recipeInspiration", (req, res) => {
-    res.render("recipeInspiration", {
-      style: "recipes.css",
-      user: req.user
-    });
-  });
+  // };
   //Route to update User Goals
 };
