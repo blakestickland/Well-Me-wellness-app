@@ -52,3 +52,18 @@ new Chart(document.getElementById("weekly-result"), {
     }
   }
 });
+const weeklyResult = graphData => {
+  fetch("/api/graph", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(weekly)
+  })
+    .then(() => {
+      window.location.replace("/graph");
+    })
+    .catch(err => console.error(err));
+  console.log(graphData);
+};
+weeklyResult();
