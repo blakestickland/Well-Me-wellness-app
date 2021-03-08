@@ -14,15 +14,6 @@ h1 {
 .menu {
   background: white;
 }
-#getLoginForm {
-    height: 50px;
-    font-size: 18px;
-    margin-left: 100px;
-    margin-top: 30px;
-    border-radius: 0.5rem;
-    background-color: #08d489;
-    justify-content: center;
-}
 .is-active{
   background-color: white;
 }
@@ -60,6 +51,34 @@ input, select{
 .inputPlaceholder{
   color: dark-gray;
 }
+/* buttons */
+.button{
+  border-radius: 0.5rem;
+  padding: 8px;
+}
+.button.primary {
+  background-color: #08d489;
+  margin-top: 30px;
+  font-size: 18px;
+}
+#getLoginForm {
+  height: 50px;
+  font-size: 23px;
+  margin-left: 100px;
+  margin-top: 30px;
+  border-radius: 0.5rem;
+  background-color: #08d489;
+  justify-content: center;
+  max-width: 500px;
+  width: 100%;
+  text-decoration: none;
+}
+#getLoginForm:hover{
+  background-color: steelblue;
+}
+.inputField{
+  border-radius: 0.5rem;
+}
 /* background Image */
 body,
 html {
@@ -94,14 +113,6 @@ html {
   background: 0 0;
   color:  #08d489;
 }
-
-.button.primary {
-  background-color: #08d489;
-  margin-top: 30px;
-  font-size: 18px;
-}
-
-
 label {
   font-size: 18px;
 }
