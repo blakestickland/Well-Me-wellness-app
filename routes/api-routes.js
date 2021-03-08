@@ -16,7 +16,6 @@ module.exports = function(app) {
 
   // Route for user signup
   app.post("/api/signup", (req, res) => {
-    console.log("body", req.body);
     db.User.create({
       name: req.body.name,
       email: req.body.email,
@@ -61,9 +60,8 @@ module.exports = function(app) {
     }
   });
   //Route to log daily results
-  app.post("/api/members", (req, res) => {
+  app.post("/api/members", isAuthenticated, (req, res) => {
     console.log("body", req.body);
-
     db.Dailylog.create({
       UserId: req.user.id,
       calories: req.body.calories,
@@ -76,6 +74,42 @@ module.exports = function(app) {
     })
       .then(response => {
         console.log(response);
+        res.redirect(302, "/members");
+      })
+      .catch(err => {
+        console.log(err, "this is the err");
+      });
+  });
+  //Route recipe page
+  app.get("/api/recipeInspiration", isAuthenticated, (req, res) => {
+    res
+      .json({
+        name: req.user.name,
+        diet: req.user.diet,
+        UserId: req.user.id
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+  //Route to update user Weight goal
+  app.patch("/api/members", isAuthenticated, (req, res) => {
+    db.User.update(
+      {
+        weight: req.body.weight,
+        activity: req.body.activity,
+        goal: req.body.goal
+      },
+      {
+        where: {
+          id: req.user.id
+        }
+      }
+    )
+      .then(() => {
         res.redirect(302, "/members");
       })
       .catch(err => {
