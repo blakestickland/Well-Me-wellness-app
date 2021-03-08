@@ -14,16 +14,8 @@
             </div>
         </div>
     </nav>
-    <div class="goalBar">
-    <div class="row">
-        <div data-sticky-container>
-            <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="1"
-                data-btm-anchor="content:bottom">
-                <div>Helping you reach your fitness goals faster!</div> 
-            </div>
-        </div>
-    </div>
-</div>
+  
+    {{>recipes name=name}}
     <div class="bg-img">
          {{!-- recipe cards go here  --}}
             {{>recipes}}
