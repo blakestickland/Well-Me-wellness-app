@@ -92,7 +92,11 @@ select {
   position: relative;
   max-width: 100%;
 }
-
+/* quote */
+.inspoQuote{
+  font-size: larger;
+  font-style: italic;
+}
 /*Styling for goal bar*/
 .colBar {
   padding: 20px;
