@@ -29,7 +29,7 @@
                 <div class="logForm">
                     <form id="dailyLogForm">
                         <h3 class="text-center">Log Your Day</h3>
-                        <p class="memIntro text-center">Did you meet your goals today {{name}}?</p>
+                        <p class="memIntro text-center">Did you meet your goals today {{user.name}}?</p>
                         <p class="memIntro text-center">On a scale from <b>0</b> <i>Nope not today</i> to <b>10</b>
                             <i>Yeah I Nailed it!</i> Move the Sliders below
                         </p>
@@ -98,9 +98,14 @@
                 <!-- Daily Score Form Remove hide class when calculated-->
                 <div class="scoreForm hide">
                     <h3 class="text-center">Your Wellbeing Score is</h3>
-                    <h4 id="score" class="text-center"></h4>
-                    <p class="inspoQuote text-center"><i></i></p>
-                    <p class="author"></p>
+                    <br>
+                    <h3 id="score" class="text-center"></h3>
+                    <br>
+                    <h5 id="score" class="text-center">Great tracking {{user.name}}! Here's an inspirational quote to keep you motivated.</h5>
+                    <br>
+                    <p class="inspoQuote text-center"></p>
+                    <p class="author text-center"></p>
+                    <br>
                     <button type="submit" class="primary button expanded search-button round" href="./graph">
                         View Your Weekly Results Here
                     </button>

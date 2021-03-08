@@ -99,15 +99,11 @@ input, select{
   position: relative;
   max-width: 100%,
 }
-
-/* Cards CSS */
-/* .equal-height-cards { */
-  .cell {
-    display: flex;
-    align-items: stretch;
-  }
-/* } */
-
+/* quote */
+.inspoQuote{
+  font-size: larger;
+  font-style: italic;
+}
 /*Styling for goal bar*/
 .title-bar {
   height: 70px;
