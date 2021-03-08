@@ -49,7 +49,7 @@ module.exports = function(app) {
   app.get("/recipeInspiration", (req, res) => {
     res.render("recipesInspiration", {
       style: "recipes.css",
-      user: req.user,
+      user: req.users
       // recipesReturned: reducedRecipesData
     });
     // return response;
