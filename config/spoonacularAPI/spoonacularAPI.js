@@ -10,9 +10,9 @@ const apiUrlExtension3 = "&includeNutrition=true";
 const apiUrlExtensionRecipes = "?ids=";
 // const userDiet = require("../../");
 
-async function getRecipeIds() {
+async function getRecipeIds(diet) {
   try {
-    const apiUrlExtension = "?tags=" + "vegan"; // this is where we need the result of the diet dropdown entered
+    const apiUrlExtension = "?tags=" + diet; // this is where we need the result of the diet dropdown entered
     const apiNumberOfResults = "&number=8";
     const apiUrl =
       API_PATH + apiUrlExtension + apiNumberOfResults + API_APP_KEY2;
