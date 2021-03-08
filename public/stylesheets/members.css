@@ -14,7 +14,7 @@ h1 {
 .menu {
   background: white;
 }
-.is-active{
+.is-active {
   background-color: white;
 }
 /* goals bar */
@@ -30,10 +30,10 @@ h1 {
 }
 /* button */
 #getLoginForm {
-    padding: 10px;
-    margin-left: 100px;
-    margin-top: 30px;
-    border-radius: 0.5rem;
+  padding: 10px;
+  margin-left: 100px;
+  margin-top: 30px;
+  border-radius: 0.5rem;
 }
 label {
   font-size: 18px;
@@ -41,14 +41,17 @@ label {
 /* Form */
 .translucent-form-overlay {
   background-color: rgba(54, 54, 54, 0.8);
-  /* position: absolute; */
   max-width: 500px;
-  width: 100%;
+  width: 500px;
   padding: 20px;
   color: white;
-  margin-left: 70px;
+  margin-left: 100px;
   margin-top: 70px;
   border-radius: 0.5rem;
+}
+.row > * {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
 }
 .columns.row {
   display: block;
@@ -64,7 +67,7 @@ select {
 input::placeholder {
   color: dark-gray;
 }
-.cell{
+.cell {
   padding-bottom: 0px;
 }
 /* background Image */
@@ -72,8 +75,9 @@ body,
 html {
   height: 100%;
 }
-input, select{
-   height: 1.8rem !important;
+input,
+select {
+  height: 1.8rem !important;
 }
 * {
   box-sizing: border-box;
@@ -86,16 +90,8 @@ input, select{
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  max-width: 100%,
+  max-width: 100%;
 }
-
-/* Cards CSS */
-/* .equal-height-cards { */
-  .cell {
-    display: flex;
-    align-items: stretch;
-  }
-/* } */
 
 /*Styling for goal bar*/
 .colBar {
@@ -121,55 +117,75 @@ input, select{
   color: red;
 }
 
-.fa-utensils, .fa-running, .fa-glass-whiskey, .fa-bed, .fa-child {
+.fa-utensils,
+.fa-running,
+.fa-glass-whiskey,
+.fa-bed,
+.fa-child {
   padding-right: 10px;
 }
 
-.dropdown.menu>li.is-active>a {
+.dropdown.menu > li.is-active > a {
   background: 0 0;
-  color:  #08d489;
+  color: #08d489;
 }
 .label {
   font-size: 18px;
 }
 /* buttons */
-.button{
-  border-radius:  0.5rem;
+.button {
+  border-radius: 0.5rem;
 }
 .button.primary {
   background-color: #08d489;
 }
 /* Recipe link */
-.recipeImg{
+.recipeImg {
   border-radius: 0.5rem;
   margin-left: 0px;
 }
-.recipeImg:hover{
+.recipeImg:hover {
   opacity: 0.5;
   cursor: pointer;
 }
-#recipeLink{
-  width: 500px;
-}
 /* update form */
-#changeWeight{
+#changeWeight {
   width: 500px;
   padding: 0px !important;
 }
-.update{
+.update {
   margin-bottom: 0px !important;
-  border-radius:  0.5rem;
-
+  border-radius: 0.5rem;
 }
-.updateInput{
-  border-radius:  0.5rem;
+.updateInput {
+  border-radius: 0.5rem;
 }
 /* media queries */
-@media only screen and (min-width: 1220px) {
+@media only screen and (max-width: 1210px) {
   .translucent-form-overlay {
-    background-color: rgba(54, 54, 54, 0.8);
-    /* position: absolute; */
-    max-width: 500px;
-    width: 100%;
     margin-left: 20px;
+  }
+}
+@media only screen and (max-width: 1055px) {
+  .translucent-form-overlay {
+    margin-left: 5px;
+  }
+  #changeYourWeight {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .translucent-form-overlay {
+    margin-left: 200px;
+    align-items: center;
+    margin-top: 50px;
+  }
+  #changeYourWeight {
+    padding: 20px;
+  }
+  .bg-img {
+    background-repeat: repeat;
+    height: 2000px;
+}
 }
