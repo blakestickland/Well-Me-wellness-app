@@ -47,65 +47,26 @@ module.exports = function(app) {
   });
   //Routing for recipeInspiration page
   app.get("/recipeInspiration", (req, res) => {
+    // Run getRecipes() which will return
+    // Spoonacular API calls with specified number of recipes.
     getRecipes().then(response => {
-      console.log(response);
+      // Reduce the amount of data in Spoonacular response to data we will use.
+      const reducedRecipesData = response.map(item => {
+        return {
+          title: item.title,
+          image: item.image,
+          url: item.spoonacularSourceUrl,
+          nutrientsUnit: item.nutrition.nutrients[0].unit,
+          nutrientsName: item.nutrition.nutrients[0].name,
+          nutrientsAmount: item.nutrition.nutrients[0].amount
+        };
+      });
       res.render("recipeInspiration", {
         style: "recipes.css",
         user: req.user,
-        recipeTitle: response[0].title,
-        recipeImage: response[0].image,
-        recipeUrl: response[0].spoonacularSourceUrl,
-        recipeNutrientsUnit: response[0].nutrition.nutrients[0].unit,
-        recipeNutrientsName: response[0].nutrition.nutrients[0].name,
-        recipeNutrientsAmount: response[0].nutrition.nutrients[0].amount
+        recipesReturned: reducedRecipesData
       });
       return response;
     });
-    });
-    // const fruties = ['apple', 'orange', 'kiwi']
-
-    // let transformed = []
-    // for (let index = 0; index < fruiies.length; index++) {
-    //   const element = fruiies[index];
-    //   transformed.push('a')
-    // }
-    // const fruit2 = fruities.map((fruit) => {
-    //   return 'a'
-    // })
-
-    // getRecipes().then(function(response) {
-
-    //   return response.map((item) => {
-    //     return {
-    //       title: item.title,
-
-    //     }
-    //   })
-    // getRecipes().then(function(response){
-    //   return response.map(item => {
-    //     return {
-    //       recipeTitle: response.title,
-    //       // recipeImage: response.image,
-    //       // recipeId: response.id,
-    //       // recipeUrl: response.spoonacularSourceUrl,
-    //       // recipeNutrientsUnit: response.nutrition.nutrients[0].unit,
-    //       // recipeNutrientsName: response.nutrition.nutrients[0].name,
-    //       // recipeNutrientsAmount: response.nutrition.nutrients[0].amount,
-    //     }
-    //   })
-    // })
-    //   for (let i = 0; i < response.length; i++) {
-    //     console.log(response[i].title);d
-    //     console.log(response[i].image);
-    //     console.log(response[i].id);
-    //     console.log(response[i].spoonacularSourceUrl);
-    //     console.log(response[i].nutrition.nutrients[0].unit);
-    //     console.log(response[i].nutrition.nutrients[0].name);
-    //     console.log(response[i].nutrition.nutrients[0].amount);
-    //     recipesReturned.push(response);
-    //   }
-    //   return response;
-    // });
-  // };
-  //Route to update User Goals
+  });
 };

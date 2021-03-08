@@ -1,15 +1,17 @@
-<div class="grid-container">
-  <div class="grid-x grid-padding-x medium-unstack equal-height-cards">
-    <div class="cell medium-4">
-      <div class="card" style="width: 18rem;">
-        <img src="{{recipeImage}}" class="card-img-top" alt="image of Spoonacular recipe {{recipeTitle}}">
+<div class="container">
+  <div class="row">
+    {{#each recipesReturned}}
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="card equal-height-cards" style="width: 18rem;">
+        <img src="{{this.image}}" class="card-img-top" alt="image of Spoonacular recipe {{this.title}}">
         <div class="card-body">
-          <h5 class="card-title">{{recipeTitle}}</h5>
-          <p class="card-text">{{recipeNutrientsName}} Information: 
-            {{recipeNutrientsAmount}} {{recipeNutrientsUnit}}</p>
-          <a href="{{recipeUrl}}" class="btn btn-primary" target="_blank">Go to Spoonacular</a>
+          <h5 class="card-title">{{this.title}}</h5>
+          <p class="card-text">{{this.nutrientsName}} : 
+            {{this.nutrientsAmount}} {{this.nutrientsUnit}}</p>
+          <a href="{{this.url}}" class="btn btn-primary" target="_blank">Spoonacular Recipe</a>
         </div>
       </div>
     </div>
+    {{/each}}
   </div>
 </div>

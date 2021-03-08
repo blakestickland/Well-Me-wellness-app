@@ -3,16 +3,17 @@
 const fetch = require("node-fetch");
 require("dotenv").config();
 const API_APP_KEY2 = "&apiKey=" + process.env.API_KEY2;
-const API_APP_KEY4 = "&apiKey=" + process.env.API_KEY3; // second API key for times when 402 error is returned
+const API_APP_KEY4 = "&apiKey=" + process.env.API_KEY4; // second API key for times when 402 error is returned
 const API_PATH = "https://api.spoonacular.com/recipes/random"; // first API call to get random recipes
 const API_PATH2 = "https://api.spoonacular.com/recipes/informationBulk"; // second API call to get information about recipes
 const apiUrlExtension3 = "&includeNutrition=true";
 const apiUrlExtensionRecipes = "?ids=";
+// const userDiet = require("../../");
 
 async function getRecipeIds() {
   try {
     const apiUrlExtension = "?tags=" + "vegan"; // this is where we need the result of the diet dropdown entered
-    const apiNumberOfResults = "&number=2";
+    const apiNumberOfResults = "&number=8";
     const apiUrl =
       API_PATH + apiUrlExtension + apiNumberOfResults + API_APP_KEY2;
     const data = await fetch(apiUrl, {
@@ -52,7 +53,6 @@ const getRecipes = async () => {
         "Content-Type": "application/json"
       }
     });
-    console.log("Second API call address is: " + apiUrl2);
     const response = await data.json();
     return response;
   } catch (err) {
