@@ -2,14 +2,14 @@
 
 const fetch = require("node-fetch");
 require("dotenv").config();
-const API_APP_KEY2 = "&apiKey=" + process.env.API_KEY2;
-const API_APP_KEY4 = "&apiKey=" + process.env.API_KEY4; // second API key for times when 402 error is returned
+const API_APP_KEY2 = "&apiKey=" + process.env.API_KEY2; // API keys for Spoonacular; limited to 150 points a day.
+const API_APP_KEY4 = "&apiKey=" + process.env.API_KEY4; // second API key to not overload the first one with hits.
 const API_PATH = "https://api.spoonacular.com/recipes/random"; // first API call to get random recipes
 const API_PATH2 = "https://api.spoonacular.com/recipes/informationBulk"; // second API call to get information about recipes
 const apiUrlExtension3 = "&includeNutrition=true";
 const apiUrlExtensionRecipes = "?ids=";
-// const userDiet = require("../../");
 
+// Function to retrieve specified number of recipe IDs from Spoonacular API
 async function getRecipeIds(diet) {
   try {
     const apiUrlExtension = "?tags=" + diet; // this is where we need the result of the diet dropdown entered
@@ -38,9 +38,10 @@ async function getRecipeIds(diet) {
   }
 }
 
-const getRecipes = async () => {
+// Function to get detailed information about the recipes.
+const getRecipes = async diet => {
   try {
-    const recipeIds = await getRecipeIds();
+    const recipeIds = await getRecipeIds(diet);
     const apiUrl2 =
       API_PATH2 +
       apiUrlExtensionRecipes +
@@ -54,7 +55,20 @@ const getRecipes = async () => {
       }
     });
     const response = await data.json();
-    return response;
+    // Reduce the amount of data in Spoonacular response to data we will use.
+    // We want recipe title, image, Spoonacular URL, caloric data.
+    const reducedRecipesData = response.map(item => {
+      return {
+        title: item.title,
+        image: item.image,
+        url: item.spoonacularSourceUrl.title,
+        nutrientsUnit: item.nutrition.nutrients[0].unit,
+        nutrientsName: item.nutrition.nutrients[0].name,
+        nutrientsAmount: item.nutrition.nutrients[0].amount
+      };
+    });
+    // Return the result so it can be used in html-routes to then populate recipes.handlebars with data.
+    return reducedRecipesData;
   } catch (err) {
     console.error(err);
   }
