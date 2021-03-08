@@ -34,6 +34,16 @@ if (dailyLogForm) {
     dailyScoreForm.classList.remove("hide");
     //append score to page
     score.innerHTML = dailyScore;
+    //get inspirational quote
+    const inspoQuote = document.querySelector(".inspoQuote");
+    const author = document.querySelector(".author");
+    const data = getQuote();
+    if (data) {
+      const quoteObj = data[Math.floor(Math.random() * data.length)];
+      console.log(quoteObj);
+      inspoQuote.innerHTML = quoteObj.text;
+      author.innerHTML = quoteObj.author;
+    }
   });
 }
 // POST request for the daily log
@@ -83,6 +93,18 @@ const updateUser = updateData => {
 // send the user to the recipe page
 const imgLink = document.querySelector(".recipeImg");
 
-imgLink.addEventListener("click", () => {
-  window.location.href = "/recipeInspiration";
-});
+if (imgLink) {
+  imgLink.addEventListener("click", () => {
+    window.location.href = "/recipeInspiration";
+  });
+}
+//function to get a json object of inspirational quotes
+const getQuote = () => {
+  fetch("https://type.fit/api/quotes")
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      return data;
+    });
+};
