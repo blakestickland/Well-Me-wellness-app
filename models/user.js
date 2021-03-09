@@ -87,10 +87,6 @@ module.exports = function(sequelize, DataTypes) {
       parseInt(user.height),
       user.gender
     );
-    function idealWeight() {
-      console.log("Recommended Body Weight:", idealBodyWeight);
-    }
-    idealWeight();
     user.idealWeight = idealBodyWeight;
   });
 
@@ -105,10 +101,6 @@ module.exports = function(sequelize, DataTypes) {
       user.goal,
       "normal"
     );
-    function CaloricNeeds() {
-      console.log("Recommended caloriesintake", totalCaloricNeeds);
-    }
-    CaloricNeeds();
     user.idealCalories = totalCaloricNeeds;
   });
 

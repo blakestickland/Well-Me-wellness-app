@@ -23,7 +23,7 @@ app.use(
     secret: "keyboard cat",
     resave: true,
     saveUninitialized: true,
-    cookie: { _expires: 60000000 }
+    cookie: { maxAge: 36000000 }
   })
 );
 app.use(passport.initialize());
