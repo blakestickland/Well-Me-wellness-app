@@ -116,4 +116,14 @@ module.exports = function(app) {
         console.log(err, "this is the err");
       });
   });
+  //Routing for weekly Results page
+  app.get("/api/graph", isAuthenticated, (req, res) => {
+    db.Dailylog.findAll({
+      where: { UserId: req.user.id },
+      include: [db.User]
+    }).then(results => {
+      res.json(results);
+      console.log("/graph API-route", results);
+    });
+  });
 };
