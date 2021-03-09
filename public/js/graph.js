@@ -11,8 +11,7 @@ const graphInfo = () => {
     });
 };
 graphInfo();
-// eslint-disable-next-line prettier/prettier
-const createGraph = (results) => {
+const createGraph = () => {
   const ctx = document.getElementById("weekly-result");
   // eslint-disable-next-line no-unused-vars
   const myChart = new Chart(ctx, {
