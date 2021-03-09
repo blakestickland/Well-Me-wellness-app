@@ -87,7 +87,6 @@ module.exports = function(sequelize, DataTypes) {
       parseInt(user.height),
       user.gender
     );
-    idealWeight();
     user.idealWeight = idealBodyWeight;
   });
 
@@ -102,7 +101,6 @@ module.exports = function(sequelize, DataTypes) {
       user.goal,
       "normal"
     );
-    CaloricNeeds();
     user.idealCalories = totalCaloricNeeds;
   });
 

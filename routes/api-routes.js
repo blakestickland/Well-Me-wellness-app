@@ -104,7 +104,6 @@ module.exports = function(app) {
       parseInt(req.user.height),
       req.user.gender
     );
-    idealWeight();
 
     //New target calories
     const totalCaloricNeeds = calculate.caloricNeeds(
@@ -116,7 +115,6 @@ module.exports = function(app) {
       req.body.goal,
       "normal"
     );
-    CaloricNeeds();
     db.User.update(
       {
         weight: req.body.weight,
