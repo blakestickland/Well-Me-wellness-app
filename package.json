@@ -23,6 +23,7 @@
     "express-session": "^1.16.1",
     "fitness-health-calculations": "^1.0.2",
     "handlebars": "^4.7.7",
+    "inspirational-quotes": "^1.0.8",
     "mysql2": "^1.6.5",
     "nodemon": "^2.0.7",
     "passport": "^0.4.0",
