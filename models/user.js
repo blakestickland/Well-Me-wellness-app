@@ -106,19 +106,19 @@ module.exports = function(sequelize, DataTypes) {
       "normal"
     );
     function CaloricNeeds() {
-      console.log("REcommended caloriesintakte", totalCaloricNeeds);
+      console.log("Recommended caloriesintake", totalCaloricNeeds);
     }
     CaloricNeeds();
     user.idealCalories = totalCaloricNeeds;
   });
 
   // // eslint-disable-next-line prettier/prettier
-  // User.associate = (models) => {
-  //   User.hasMany(models.Dailylog, {
-  //     // eslint-disable-next-line prettier/prettier
-  //     onDelete: "cascade",
-  //   });
-  // };
+  User.associate = models => {
+    User.hasMany(models.Dailylog, {
+      // eslint-disable-next-line prettier/prettier
+      onDelete: "cascade",
+    });
+  };
 
   return User;
 };
