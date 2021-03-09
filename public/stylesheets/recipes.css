@@ -102,9 +102,33 @@
   
   /* Cards CSS */
 
+  /* buttons */
+    .button {
+      border-radius: 0.5rem;
+      font-weight: 700;
+    }
+    .button.primary {
+      background-color: #08d489;
+    }
 
 
   /* Cards Helper CSS */
+    .card-color {
+      background-color: rgba(54, 54, 54, 0.8)!important;
+      color: white;
+    }
+    .font {
+      font-size: 1rem; 
+    }
+
+    a {
+      text-decoration: none!important;
+    }
+
+    .button-position {
+      bottom:auto;
+    }
+
     .card-height {
       display: flex;
       align-items: stretch;
