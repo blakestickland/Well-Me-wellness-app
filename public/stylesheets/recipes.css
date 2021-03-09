@@ -101,12 +101,35 @@
   }
   
   /* Cards CSS */
-  /* .equal-height-cards { */
-    .cell {
+
+
+
+  /* Cards Helper CSS */
+    .card-height {
       display: flex;
       align-items: stretch;
     }
-  /* } */
+    
+    .row-helper {
+      /* align-content: space-around; */
+      /* justify-content: space-around; */
+    }
+
+    .justify-space-even {
+      justify-content: space-evenly;
+    }
+
+    .card-width {
+      min-width: 15rem;
+      max-width: 18rem;
+      width:auto;
+    }
+
+    .btn-helper {
+      background-color: #08d489;
+      /* position:relative; */
+    }
+
   
   /*Styling for goal bar*/
   .title-bar {

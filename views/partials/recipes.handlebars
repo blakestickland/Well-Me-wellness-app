@@ -1,14 +1,16 @@
 {{!-- recipe cards handlebars --}}
-  <div class="row">
+  <div class="row p-3 row-helper">
     {{#each recipesReturned}}
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="card shadow mb-5 h-100 rounded" style="width: 18rem;">
-        <img src="{{this.image}}" class="card-img-top" alt="image of Spoonacular recipe {{this.title}}">
-        <div class="card-body">
+    <div class="col-md-3 col-sm-6 col-xs-12 card-height">
+      <div class="card border-dark shadow-lg rounded  mx-auto card-width d-flex" style="width: 16rem;">
+        <img src="{{this.image}}" class="card-img-top border-bottom-1 shadow" alt="image of Spoonacular recipe {{this.title}}">
+        <div class="card-body mt-3 flex-column">
           <h5 class="card-title">{{this.title}}</h5>
-          <p class="card-text">{{this.nutrientsName}} : 
+          <p class="card-text mt-4 text-center">{{this.nutrientsName}} : 
             {{this.nutrientsAmount}} {{this.nutrientsUnit}}</p>
-          <a href="{{this.url}}" class="btn btn-primary" target="_blank">Spoonacular Recipe</a>
+            <div class="text-center">
+              <a href="{{this.url}}" class="btn rounded border-secondary shadow-sm mx-auto mt-auto text-center btn-helper" target="_blank">Spoonacular Recipe</a>
+            </div>
         </div>
       </div>
     </div>
