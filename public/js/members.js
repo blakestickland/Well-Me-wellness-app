@@ -78,6 +78,7 @@ if (weightForm) {
   });
 }
 // Patch request to update user data
+
 const updateUser = updateData => {
   fetch("/api/members", {
     method: "PATCH",
@@ -92,8 +93,8 @@ const updateUser = updateData => {
     .catch(err => console.error(err));
 };
 // send the user to the recipe page
-const imgLink = document.querySelector(".recipeImg");
 
+const imgLink = document.querySelector(".recipeImg");
 if (imgLink) {
   imgLink.addEventListener("click", () => {
     window.location.href = "/recipeInspiration";
