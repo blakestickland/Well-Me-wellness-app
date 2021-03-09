@@ -74,10 +74,11 @@ module.exports = function(app) {
     })
       .then(response => {
         console.log(response);
-        res.redirect(302, "/members");
+        res.json({ message: "Success entering daily log", result: true });
       })
       .catch(err => {
-        console.log(err, "this is the err");
+        res.json({ message: "Unsuccessful entering daily log", result: false });
+        console.error(err, "this is the err");
       });
   });
   //Route recipe page

@@ -22,7 +22,7 @@ app.use(
   session({
     secret: "keyboard cat",
     resave: true,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: { _expires: 60000000 }
   })
 );

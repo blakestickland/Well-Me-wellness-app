@@ -1,7 +1,7 @@
 $(document).foundation();
 
-const dailyLogForm = document.getElementById("dailyLogForm");
-const dailyScoreForm = document.querySelector("#dailyScoreForm");
+const dailyLogForm = document.querySelector(".logForm");
+const dailyScoreForm = document.querySelector(".scoreForm");
 const calorieInput = document.getElementById("sliderOutputCalories");
 const exerciseInput = document.getElementById("sliderOutputExercise");
 const waterInput = document.getElementById("sliderOutputWater");
@@ -10,7 +10,7 @@ const score = document.getElementById("score");
 
 // Event Listener for the daily log form
 if (dailyLogForm) {
-  dailyLogForm.addEventListener("submit", event => {
+  dailyLogForm.addEventListener("submit", async event => {
     event.preventDefault();
     const userData = {
       calories: parseInt(calorieInput.value),
@@ -34,6 +34,17 @@ if (dailyLogForm) {
     dailyScoreForm.classList.remove("hide");
     //append score to page
     score.innerHTML = dailyScore;
+    //get inspirational quote
+    const inspoQuote = document.querySelector(".inspoQuote");
+    const author = document.querySelector(".author");
+    const data = await getQuote();
+    console.log("data", data);
+    if (data) {
+      const quoteObj = data[Math.floor(Math.random() * data.length)];
+      console.log("log in quoteObj", quoteObj);
+      inspoQuote.innerHTML = quoteObj.text;
+      author.innerHTML = quoteObj.author;
+    }
   });
 }
 // POST request for the daily log
@@ -46,7 +57,6 @@ const dailyLog = userData => {
     body: JSON.stringify(userData)
   })
     .then(response => response.json())
-    .then(() => window.location.replace("/members"))
     .catch(err => console.error(err));
 };
 // update users weight and goals in the database
@@ -90,3 +100,8 @@ if (imgLink) {
     window.location.href = "/recipeInspiration";
   });
 }
+//function to get a json object of inspirational quotes
+const getQuote = async () => {
+  const response = await fetch("https://type.fit/api/quotes");
+  return await response.json();
+};
