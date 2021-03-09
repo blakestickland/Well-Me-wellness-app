@@ -94,6 +94,7 @@ const updateUser = updateData => {
 };
 // send the user to the recipe page
 
+const imgLink = document.querySelector(".recipeImg");
 if (imgLink) {
   imgLink.addEventListener("click", () => {
     window.location.href = "/recipeInspiration";
