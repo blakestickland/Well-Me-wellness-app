@@ -1,6 +1,8 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const Op = db.Sequelize.Op;
+const calculate = require("fitness-health-calculations");
 
 module.exports = function(app) {
   // Passport.authenticate middleware
@@ -98,11 +100,29 @@ module.exports = function(app) {
   });
   //Route to update user Weight goal
   app.patch("/api/members", isAuthenticated, (req, res) => {
+    ///New target body weight calucations
+    const idealBodyWeight = calculate.idealBodyWeight(
+      parseInt(req.user.height),
+      req.user.gender
+    );
+
+    //New target calories
+    const totalCaloricNeeds = calculate.caloricNeeds(
+      req.user.gender,
+      parseInt(req.user.age),
+      parseInt(req.user.height),
+      parseInt(req.body.weight),
+      req.body.activity,
+      req.body.goal,
+      "normal"
+    );
     db.User.update(
       {
         weight: req.body.weight,
         activity: req.body.activity,
-        goal: req.body.goal
+        goal: req.body.goal,
+        idealWeight: idealBodyWeight,
+        idealCalories: totalCaloricNeeds
       },
       {
         where: {
@@ -119,12 +139,26 @@ module.exports = function(app) {
   });
   //Routing for weekly Results page
   app.get("/api/graph", isAuthenticated, (req, res) => {
+    console.log("inside apigraph");
+    console.log(new Date());
+    console.log(new Date(new Date() - 24 * 60 * 60 * 1000));
     db.Dailylog.findAll({
-      where: { UserId: req.user.id },
+      where: {
+        UserId: req.user.id,
+        createdAt: {
+          //$between: [new Date(new Date() - 7 * 24 * 60 * 60 * 1000), new Date()]
+          [Op.lt]: new Date(),
+          [Op.gte]: new Date(new Date() - 8 * 24 * 60 * 60 * 1000)
+        }
+        // createdAt: {
+        //   $gte: "2021-03-05T11:18:49.000Z",
+        //   $lt: "2021-03-012T11:18:49.000Z"
+        // }
+      },
       include: [db.User]
     }).then(results => {
-      res.json(results);
       console.log("/graph API-route", results);
+      res.json(results);
     });
   });
 };
