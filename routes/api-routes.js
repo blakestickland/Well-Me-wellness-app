@@ -141,23 +141,20 @@ module.exports = function(app) {
   app.get("/api/graph", isAuthenticated, (req, res) => {
     console.log("inside apigraph");
     console.log(new Date());
-    console.log(new Date(new Date() - 24 * 60 * 60 * 1000));
+    console.log(new Date(new Date() - 5 * 24 * 60 * 60 * 1000));
     db.Dailylog.findAll({
       where: {
         UserId: req.user.id,
         createdAt: {
           //$between: [new Date(new Date() - 7 * 24 * 60 * 60 * 1000), new Date()]
           [Op.lt]: new Date(),
-          [Op.gte]: new Date(new Date() - 8 * 24 * 60 * 60 * 1000)
+          [Op.gte]: new Date(new Date() - 7 * 24 * 60 * 60 * 1000)
         }
-        // createdAt: {
-        //   $gte: "2021-03-05T11:18:49.000Z",
-        //   $lt: "2021-03-012T11:18:49.000Z"
-        // }
       },
+      order: [["createdAt", "ASC"]],
       include: [db.User]
     }).then(results => {
-      console.log("/graph API-route", results);
+      // console.log("/graph API-route", results);
       res.json(results);
     });
   });
