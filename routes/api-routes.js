@@ -2,6 +2,8 @@ const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const Op = db.Sequelize.Op;
+const calculate = require("fitness-health-calculations");
+
 
 module.exports = function(app) {
   // Passport.authenticate middleware
@@ -99,11 +101,29 @@ module.exports = function(app) {
   });
   //Route to update user Weight goal
   app.patch("/api/members", isAuthenticated, (req, res) => {
+    ///New target body weight calucations
+    const idealBodyWeight = calculate.idealBodyWeight(
+      parseInt(req.user.height),
+      req.user.gender
+    );
+
+    //New target calories
+    const totalCaloricNeeds = calculate.caloricNeeds(
+      req.user.gender,
+      parseInt(req.user.age),
+      parseInt(req.user.height),
+      parseInt(req.body.weight),
+      req.body.activity,
+      req.body.goal,
+      "normal"
+    );
     db.User.update(
       {
         weight: req.body.weight,
         activity: req.body.activity,
-        goal: req.body.goal
+        goal: req.body.goal,
+        idealWeight: idealBodyWeight,
+        idealCalories: totalCaloricNeeds
       },
       {
         where: {

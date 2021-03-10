@@ -17,6 +17,10 @@ h1 {
 .is-active{
   background-color: white;
 }
+/* body */
+.row {
+  --bs-gutter-x: 0rem !important;
+}
 /* Form */
 .translucent-form-overlay {
   background-color: rgba(54, 54, 54, 0.8);
