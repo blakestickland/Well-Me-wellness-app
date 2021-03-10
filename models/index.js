@@ -18,12 +18,8 @@ const API_APP_KEY2 = "&apiKey=" + process.env.API_KEY2;
 console.log(process.env);
 console.log(config.use_env_variable);
 
-<<<<<<< HEAD
-
-=======
 // If Else to select the environment config
 if (config.use_env_variable) {
->>>>>>> 263493dc01e41e1f23d6f394adabc20de77c5e69
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
   console.log("Using the Production environment to connect to database");
 } else {
