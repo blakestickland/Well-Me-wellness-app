@@ -32,10 +32,31 @@ const createGraph = () => {
       const ctx = document.getElementById("weekly-result");
       // eslint-disable-next-line no-unused-vars
       const myChart = new Chart(ctx, {
+        // type: "line",
+        // data: {
+        //   datasets: [
+        //     {
+        //       label: "Daily Score",
+        //       backgroundColor: "#000000",
+        //       data: dailyScore,
+        //       options: options
+        //     }
+        //   ]
+        // },
         type: "bar",
         data: {
           labels: daysOfWeek,
           datasets: [
+            {
+              label: "Daily Score",
+              backgroundColor: "none",
+              borderColor: "#849396",
+              fill: false,
+              data: dailyScore,
+              type: "line",
+              pointRadius: 2,
+              borderWidth: 3
+            },
             {
               label: "Water Intake",
               backgroundColor: "#3e95cd",
