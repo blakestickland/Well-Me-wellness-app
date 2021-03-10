@@ -4,7 +4,6 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 const Op = db.Sequelize.Op;
 const calculate = require("fitness-health-calculations");
 
-
 module.exports = function(app) {
   // Passport.authenticate middleware
   //  Route for user login
