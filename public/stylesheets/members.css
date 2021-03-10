@@ -28,9 +28,6 @@ h1 {
 .bari {
   padding-right: 20px;
 }
-label {
-  font-size: 18px;
-}
 /* Form */
 .translucent-form-overlay {
   background-color: rgba(54, 54, 54, 0.8);
@@ -42,9 +39,15 @@ label {
   margin-top: 70px;
   border-radius: 0.5rem;
 }
+label {
+  font-size: 18px;
+}
 .row > * {
   padding-right: 0px !important;
   padding-left: 0px !important;
+}
+.row {
+  --bs-gutter-x: 0rem !important;
 }
 .columns.row {
   display: block;
@@ -102,6 +105,8 @@ select {
 /*Styling for goal bar*/
 .colBar {
   padding: 20px;
+  font-weight: 600;
+  font-size: large;
 }
 .bari {
   padding-right: 20px;
