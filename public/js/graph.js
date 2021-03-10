@@ -34,7 +34,7 @@ const graphInfo = () => {
 };
 graphInfo();
 
-const createGraph = () => {
+//const createGraph = () => {
   const ctx = document.getElementById("weekly-result");
   // eslint-disable-next-line no-unused-vars
   const myChart = new Chart(ctx, {
