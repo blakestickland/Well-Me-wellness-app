@@ -1,7 +1,7 @@
 // Requiring path to so we can use relative routes to our HTML files
 // const path = require("path");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-
+const { getRecipes } = require("../config/spoonacularAPI/recipesLogic");
 module.exports = function(app) {
   // routing for the signup page
   app.get("/", (req, res) => {
@@ -47,10 +47,16 @@ module.exports = function(app) {
   });
   //Routing for recipeInspiration page
   app.get("/recipeInspiration", (req, res) => {
-    res.render("recipeInspiration", {
-      style: "recipes.css",
-      user: req.user
+    // Run getRecipes() which will return
+    // Spoonacular API calls with specified number of recipes.
+    const diet = req.user.diet;
+    getRecipes(diet).then(response => {
+      res.render("recipeInspiration", {
+        style: "recipes.css",
+        user: req.user,
+        recipesReturned: response
+      });
+      return;
     });
   });
-  //Route to update User Goals
 };

@@ -1,0 +1,9 @@
+[{"calories":5, "exercise":2, "water_intake":6, "sleep":3, "daily_score":4, "createdAt":"2021-03-01 04:11:45", "updatedAt":"2021-03-10 04:11:45", "UserId":1},
+ {"calories":4, "exercise":9, "water_intake":2, "sleep":10, "daily_score":6, "createdAt":"2021-03-02 04:11:56", "updatedAt":"2021-03-10 04:11:56", "UserId":1},
+ {"calories":10, "exercise":1, "water_intake":2, "sleep":10, "daily_score":6, "createdAt":"2021-03-03 04:12:07", "updatedAt":"2021-03-10 04:12:07", "UserId":1},
+ {"calories":5, "exercise":5, "water_intake":6, "sleep":6, "daily_score":6, "createdAt":"2021-03-04 04:12:18", "updatedAt":"2021-03-10 04:12:18", "UserId":1},
+ {"calories":10, "exercise":6, "water_intake":5, "sleep":3, "daily_score":6, "createdAt":"2021-03-05 04:12:28", "updatedAt":"2021-03-10 04:12:28", "UserId":1},
+ {"calories":10, "exercise":7, "water_intake":10, "sleep":10, "daily_score":9, "createdAt":"2021-03-06 04:12:40", "updatedAt":"2021-03-10 04:12:40", "UserId":1},
+ {"calories":10, "exercise":10, "water_intake":0, "sleep":0, "daily_score":5, "createdAt":"2021-03-07 04:12:48", "updatedAt":"2021-03-10 04:12:48", "UserId":1},
+ {"calories":0, "exercise":0, "water_intake":10, "sleep":10, "daily_score":5, "createdAt":"2021-03-08 04:12:56", "updatedAt":"2021-03-10 04:12:56", "UserId":1},
+ {"calories":2, "exercise":6, "water_intake":3, "sleep":10, "daily_score":5, "createdAt":"2021-03-09 04:13:05", "updatedAt":"2021-03-10 04:13:05", "UserId":1}]
