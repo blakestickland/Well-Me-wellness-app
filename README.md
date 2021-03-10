@@ -84,7 +84,7 @@ So that I can reach my fitness and wellbeing goals faster.
 https://github.com/blakestickland/project2
 
 ### URL
-https://git.heroku.com/lkblt-project2.git
+https://lkblt-project2.herokuapp.com/
 
 ### Screenshot
 
