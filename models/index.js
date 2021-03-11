@@ -11,12 +11,6 @@ var db        = {};
 require('dotenv').config();
 const API_APP_KEY2 = "&apiKey=" + process.env.API_KEY2;
 
-
-// console.log("API_KEY2 is: " + process.env.API_KEY2);
-// console.log("API_APP_KEY2 is: " + API_APP_KEY2);
-// console.log(process.env);
-// console.log(config.use_env_variable);
-
 // If Else to select the environment config
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);

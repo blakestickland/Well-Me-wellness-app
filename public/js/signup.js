@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         activity: activityInput.value.trim(),
         goal: goalInput.value.trim()
       };
-      console.log("signup page", userData);
       if (!userData.email || !userData.password) {
         return;
       }

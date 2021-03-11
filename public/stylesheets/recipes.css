@@ -107,11 +107,20 @@
   }
   
   /* Cards CSS */
-
+  .row-helper{
+    margin-top: 50px;
+  }
+  .card-img-top{
+    padding: 15px;
+    border-radius: 10px !important;
+  }
   /* buttons */
     .button {
       border-radius: 0.5rem;
       font-weight: 700;
+      padding: 8px;
+      margin-right: 10px !important;
+   
     }
     .button.primary {
       background-color: #08d489;

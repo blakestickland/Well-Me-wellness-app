@@ -38,10 +38,8 @@ if (dailyLogForm) {
     const inspoQuote = document.querySelector(".inspoQuote");
     const author = document.querySelector(".author");
     const data = await getQuote();
-    console.log("data", data);
     if (data) {
       const quoteObj = data[Math.floor(Math.random() * data.length)];
-      console.log("log in quoteObj", quoteObj);
       inspoQuote.innerHTML = quoteObj.text;
       author.innerHTML = quoteObj.author;
     }
@@ -73,7 +71,6 @@ if (weightForm) {
       activity: activityUpdate.value.trim(),
       goal: goalUpdate.value.trim()
     };
-    console.log("userdata to update", updateData);
     updateUser(updateData);
   });
 }
@@ -92,8 +89,7 @@ const updateUser = updateData => {
     })
     .catch(err => console.error(err));
 };
-// send the user to the recipe page
-
+// send the user to the reciple page
 const imgLink = document.querySelector(".recipeImg");
 if (imgLink) {
   imgLink.addEventListener("click", () => {
