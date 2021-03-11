@@ -2,7 +2,7 @@
 Well Me is a wellness tracker where users can track their wellness goals and find inspiration.
 
  ## Description 
-  After entering their data and personal goals Well Me caluculates the users recommened caloric intake and ideal weight. 
+  After entering their data and personal goals Well Me calculates the users recommended caloric intake and ideal weight. 
   * Users log their results daily and get a wellbeing score along with an inspirational quote to stay motivated. 
   * They can update their weight and goals at any time. 
   * Users can view recipe suggestions that include caloric information.
@@ -65,6 +65,7 @@ So that I can reach my fitness and wellbeing goals faster.
 ## Testing
 * ES Lint
 * Travis
+* Jest
 
 ## License 
 
@@ -95,6 +96,11 @@ Sign-up Page
 Members Page
 
 ![wellme2](https://user-images.githubusercontent.com/73642462/110450514-609c0280-8117-11eb-8945-cce9c5b2e953.PNG)
+
+Weekly Graph
+
+![well3](https://user-images.githubusercontent.com/73642462/110739776-f2298280-8285-11eb-8c15-a42dc3d711b0.PNG)
+
 
 
 
