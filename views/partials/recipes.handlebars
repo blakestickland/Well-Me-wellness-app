@@ -2,15 +2,15 @@
   <div class="row p-3 row-helper">
     {{#each recipesReturned}}
     <div class="col-md-3 col-sm-6 col-xs-12 card-height">
-      <div class="card border-dark shadow-lg  mx-auto card-width card-color" style="width: 16rem;">
-        <img src="{{this.image}}" class="card-img-top border-bottom-1 shadow" alt="image of Spoonacular recipe {{this.title}}">
+      <div class="card shadow-lg  mx-auto card-width card-color" style="width: 16rem;">
+        <img src="{{this.image}}" class="card-img-top border-bottom-1 img-rounded" alt="image of Spoonacular recipe {{this.title}}">
         <div class="card-body mt-3 flex-column">
           <h5 class="card-title">{{this.title}}</h5>
-          <p class="card-text mt-4 mb-5 text-center">{{this.nutrientsName}} : 
+          <p class="card-text mt-4 mb-5 text-left">{{this.nutrientsName}} : 
             {{this.nutrientsAmount}} {{this.nutrientsUnit}}</p>
           <div class="">
             <a href="{{this.url}}" target="_blank">
-              <button type="button" class="position-absolute bottom-0 end-0 primary button font expanded search-button">
+              <button type="button" class="position-absolute bottom-0 end-0 primary button font search-button">
                   Go to Recipe
               </button>
             </a>
