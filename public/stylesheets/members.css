@@ -151,6 +151,9 @@ select {
 .button.primary {
   background-color: #08d489;
 }
+.toGraphBtn{
+  text-decoration: none !important;
+}
 /* Recipe link */
 .recipeImg {
   border-radius: 0.5rem;
