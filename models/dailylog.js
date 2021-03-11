@@ -1,3 +1,4 @@
+//Model for Daily Log
 /* eslint-disable prettier/prettier */
 /* eslint-disable indent */
 module.exports = function(sequelize, DataTypes) {

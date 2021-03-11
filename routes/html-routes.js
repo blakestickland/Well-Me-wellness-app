@@ -1,7 +1,6 @@
-// Requiring path to so we can use relative routes to our HTML files
-// const path = require("path");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const { getRecipes } = require("../config/spoonacularAPI/recipesLogic");
+//
 module.exports = function(app) {
   // routing for the signup page
   app.get("/", (req, res) => {

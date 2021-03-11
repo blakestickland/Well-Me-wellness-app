@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // fetch request for the user login
   const loginUser = userData => {
-    console.log("userData from login", userData);
     fetch("/api/login", {
       method: "POST",
       headers: {

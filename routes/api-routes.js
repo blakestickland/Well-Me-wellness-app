@@ -30,8 +30,7 @@ module.exports = function(app) {
       activity: req.body.activity,
       goal: req.body.goal
     })
-      .then(response => {
-        console.log(response);
+      .then(() => {
         res.redirect(301, "/members");
       })
       .catch(err => {
@@ -63,7 +62,6 @@ module.exports = function(app) {
   });
   //Route to log daily results
   app.post("/api/members", isAuthenticated, (req, res) => {
-    console.log("body", req.body);
     db.Dailylog.create({
       UserId: req.user.id,
       calories: req.body.calories,
@@ -74,8 +72,7 @@ module.exports = function(app) {
       // eslint-disable-next-line camelcase
       daily_score: req.body.daily_score
     })
-      .then(response => {
-        console.log(response);
+      .then(() => {
         res.json({ message: "Success entering daily log", result: true });
       })
       .catch(err => {
@@ -105,7 +102,6 @@ module.exports = function(app) {
       parseInt(req.user.height),
       req.user.gender
     );
-
     //New target calories
     const totalCaloricNeeds = calculate.caloricNeeds(
       req.user.gender,
@@ -139,14 +135,10 @@ module.exports = function(app) {
   });
   //Routing for weekly Results page
   app.get("/api/graph", isAuthenticated, (req, res) => {
-    console.log("inside apigraph");
-    console.log(new Date());
-    console.log(new Date(new Date() - 5 * 24 * 60 * 60 * 1000));
     db.Dailylog.findAll({
       where: {
         UserId: req.user.id,
         createdAt: {
-          //$between: [new Date(new Date() - 7 * 24 * 60 * 60 * 1000), new Date()]
           [Op.lt]: new Date(),
           [Op.gte]: new Date(new Date() - 7 * 24 * 60 * 60 * 1000)
         }
@@ -154,7 +146,6 @@ module.exports = function(app) {
       order: [["createdAt", "ASC"]],
       include: [db.User]
     }).then(results => {
-      // console.log("/graph API-route", results);
       res.json(results);
     });
   });
