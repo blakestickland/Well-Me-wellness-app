@@ -12,9 +12,9 @@ require('dotenv').config();
 const API_APP_KEY2 = "&apiKey=" + process.env.API_KEY2;
 
 // If Else to select the environment config
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
-  console.log("Using the Production environment to connect to database");
+if (process.env.JAWSDB_URL) {
+  var sequelize = new Sequelize(process.env.JAWSDB_URL);
+  console.log("Using the JawsDB environment to connect to database");
 } else {
   // var sequelize = new Sequelize(config.database, config.username, config.password, config);
   var sequelize = new Sequelize(
@@ -23,7 +23,19 @@ if (config.use_env_variable) {
     process.env.DB_PASSWORD,
     config
     );
-  console.log("Using the Development environment to connect to database");
+// // If Else to select the environment config
+// if (config.use_env_variable) {
+//   var sequelize = new Sequelize(process.env[config.use_env_variable]);
+//   console.log("Using the Production environment to connect to database");
+// } else {
+//   // var sequelize = new Sequelize(config.database, config.username, config.password, config);
+//   var sequelize = new Sequelize(
+//     process.env.DB_DATABASE,
+//     process.env.DB_USERNAME,
+//     process.env.DB_PASSWORD,
+//     config
+//     );
+  console.log("Using the Development environment on local to connect to database");
 }
 
 fs
