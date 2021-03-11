@@ -1,14 +1,12 @@
 $(document).ready();
 
+//this fetch gets the weekly data from our database and creates a graph
 const createGraph = () => {
   fetch("/api/graph")
     .then(response => {
       return response.json();
     })
     .then(results => {
-      console.log("Graph.js", results);
-      // Get an example of the createdAt data.
-      console.log("Graph.js", results[0].createdAt);
       const dailyScore = [];
       const waterIntake = [];
       const exercise = [];
@@ -16,33 +14,18 @@ const createGraph = () => {
       const sleepHour = [];
       const daysOfWeek = [];
 
-      // const dailyScorearr = results;
       for (let i = 0; i < results.length; i++) {
         dailyScore.push(results[i].daily_score);
         waterIntake.push(results[i].water_intake);
         exercise.push(results[i].exercise);
         calorieIntake.push(results[i].calories);
         sleepHour.push(results[i].sleep);
-        daysOfWeek.push(moment(results[i].createdAt).format("dddd"));
+        daysOfWeek.push(moment.utc(results[i].createdAt).format("dddd"));
       }
-
-      // createGraph(results);
-
-      // const createGraph = () => {
+      // Creates the graph with weekly results
       const ctx = document.getElementById("weekly-result");
       // eslint-disable-next-line no-unused-vars
       const myChart = new Chart(ctx, {
-        // type: "line",
-        // data: {
-        //   datasets: [
-        //     {
-        //       label: "Daily Score",
-        //       backgroundColor: "#000000",
-        //       data: dailyScore,
-        //       options: options
-        //     }
-        //   ]
-        // },
         type: "bar",
         data: {
           labels: daysOfWeek,
