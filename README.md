@@ -66,6 +66,7 @@ So that I can reach my fitness and wellbeing goals faster.
 * ES Lint
 * Travis
 * Jest
+* Postman
 
 ## License 
 
