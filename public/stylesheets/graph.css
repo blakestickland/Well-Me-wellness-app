@@ -30,6 +30,8 @@ h1 {
   padding: 20px;
   color: white;
   margin-top: 80px;
+  margin-left: 30px;
+  margin-right: 30px;
   border-radius: 2rem;
 }
 .columns.row {
@@ -99,4 +101,10 @@ html {
 .logout:hover{
   color:#08d489;
 }
-
+/* media queries */
+@media only screen and (max-width: 990px) {
+.translucent-form-overlay {
+  width: 800px;
+  margin-left: 100px;
+}
+}
